@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header_logo {
+            /* float: left; */
+            /* position: relative; */
+            width: 192px;
+            height: 192px;
+            margin-top: 22px;
+            margin-left: 500px;
+            transition: all 1s;
+        }
+        
+        a {
+            position: relative;
+            left: 0;
+            top: 0;
+            display: block;
+            text-decoration: none;
+            width: 192px;
+            height: 192px;
+            overflow: hidden;
+        }
+        
+        .logo::before,
+        .logo::after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 192px;
+            height: 192px;
+            content: "";
+            background: url(../images/logo-mi2.png) no-repeat;
+            /* background-size: 192px 192px; */
+        }
+        
+        .header_logo:hover .logo::after {
+            /* 鼠标经过，after左移1像素，显示 */
+            margin-left: -1px;
+            opacity: 1;
+        }
+        
+        .header_logo:hover .logo::before {
+            /* 鼠标经过，before变透明，隐形 */
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header_logo">
+        <a class="logo" href="#">
+        </a>
+    </div>
+
+</body>
+
+</html>

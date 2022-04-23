@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tb-promo {
+            /* 子绝父相 */
+            position: relative;
+            top: 0;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+        }
+
+        /* 保证盒子里的图片大小一致 */
+        .tb-promo img {
+            width: 520px;
+            height: 280px;
+        }
+
+        /* 并集选择器声明相同的格式 */
+        .prev,
+        .next {
+            /* 加了绝对定位，a不用转换为行内块元素 */
+            /* 子绝父相 */
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 20px;
+            height: 30px;
+            background: rgba(0, 0, 0, .7);
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .prev {
+            left: 0;
+            /* 右边两个角做圆角矩形 */
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+
+        }
+
+
+        .next {
+            /* 如果一个盒子既有left属性又有right属性，
+            则先执行left属性，先左后右，先上后下 */
+            right: 0;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+
+        }
+
+        .promo-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 7px;
+        }
+
+        .promo-nav li {
+            float: left;
+            margin: 2.5px 3px;
+            width: 8px;
+            height: 8px;
+            text-decoration: none;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        .promo-nav .selected {
+            /* 不要忘记选择器权重问题 */
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <img src="../images/tb-promo.jpg" alt="">
+        <a href="#" class="prev"> &lt; </a>
+        <a href="#" class="next"> &gt; </a>
+        <ul class="promo-nav">
+            <li></li>
+            <li></li>
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
