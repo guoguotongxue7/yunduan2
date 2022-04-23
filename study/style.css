@@ -1,0 +1,521 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+/* 公共版心 */
+.w {
+    width: 1200px;
+    margin:auto;
+}
+body {
+    background-color: #f3f5f7;
+}
+
+.header {
+    height: 42px;
+
+    margin:30px auto;
+}
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+
+}
+
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table; 
+  }
+  .clearfix:after {
+    clear:both;
+  }
+  .clearfix {
+     *zoom:1;
+  }   
+ 
+
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+/* 导航栏可以不给宽度，方便以后继续添加其余文字 */
+.nav {
+    float: left;
+    margin-left: 60px;
+
+}
+
+/* 导航栏浮动，必须是块级元素，所以是li标签浮动，不能写到a标签里 */
+.nav ul li {
+    float: left;
+   margin:0 15px;
+}
+
+/* a是行内元素，记得转换为块级元素，否则指定宽度高度不起作用 */
+.nav ul li a {
+    display: block;
+    height: 42px;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: black;
+
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+.search {
+    float: left;
+    width: 412px;
+    height: 42px;
+
+    margin-left: 70px;
+}
+
+/* input button都是行内块元素，中间会有间隙，
+加上浮动能消除间隙,否则尺寸不对Button按钮会掉下去 */
+.search input {
+    float: left;
+    width: 345px;
+    height: 40px;
+    border:1px solid #00a4ff;
+    border-right: 0;
+    font-size: 14px;
+    color:#bfbfbf;
+    padding-left:15px;
+}
+
+.search button {
+    float: left;
+    height: 42px;
+    width: 50px;
+    background-color: #00a4ff;
+    /* botton有默认边框，需要手动去掉 */
+    border:0;
+    background: url(../study/img/button.png);
+}
+
+/* 用户信息区域 */
+.user {
+    float: left;
+    height: 42px;
+    margin-left: 50px;
+}
+
+.user .touxiang {
+    float: left;
+    width: 34px;
+    height: 42px;
+    background-image:url(../study/img/20130502185029_EkKYh拷贝.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.user .username {
+    float: left;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+/* banner区域 */
+.banner {
+    background-color: #1c036c;
+    height: 421px;
+}
+.banner .w {
+    height: 421px;
+    background: url(../study/img/banner2.png) no-repeat top center;
+
+}
+.left {
+    float: left;
+    width: 192px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.banner .left ul li {
+ 
+    height: 45px;
+    padding: 0 20px;
+    line-height: 45px;
+
+}
+
+.banner .left ul li a {
+    color: white;
+    font-size: 14px;
+}
+
+.banner .left ul li span {
+    float: right;
+
+}
+  
+.banner .left ul a:hover {
+    color:#00a4ff;
+}
+.banner .right {
+    float: right;
+    width: 230px;
+    height: 300px;
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+.banner .right h2 {
+    color: #fff;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    padding: 0 60px;
+    font-size: 18px;
+    background-color: #9bceea;
+ 
+}
+.banner .right li {
+    width: 192px;
+    height: 30px;
+    padding:17px 0;
+
+    margin:0 auto;
+    border-bottom: 1px solid #9bceea;
+}
+.banner .right li h4 {
+    color: #5a5a5a;
+}
+.banner .right li p {
+    font-size: 12px;
+    color: #bdbdbd;
+}
+.banner .right .more {
+    display: block;
+    width: 188px;
+    height: 40px;
+    margin-top: 5px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #00a4ff;
+    background-color: white;
+    margin: 5px 15px auto 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color:#00a4ff ;
+
+}
+.tuijian {
+    background-color: white;
+    height: 60px;
+    margin-top: 8px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+    /* 这三个盒子都继承行高 */
+    line-height: 60px;
+}
+
+.tuijian h3{
+    float: left;
+    padding: 0 32px;
+    color:#00a4ff;
+
+}
+.tuijian ul {
+    float: left;
+ 
+
+
+}
+.tuijian ul li {
+    float: left;
+
+}
+.tuijian ul li a {
+
+    padding:0  30px;
+    /* line-height: 20px; */
+    font-size: 16px;
+    color: #050505;
+
+    border-left:1px solid gray;
+}
+
+.tuijian .mod {
+    float: right;
+    font-size: 14px;
+    color:#00a4ff;
+    margin-right: 20px;
+}
+.box {
+    /* height: 620px; */
+    line-height: 25px;
+    margin-top: 35px;
+}
+.box-head {
+    height: 45px;
+}
+.box-head  h2{
+    float: left;
+}
+.box-head a {
+    float: right;
+    font-size: 12px;
+    color: #a5a5a5;
+    margin-right: 30px;
+}
+
+/* 把li 的父亲ul 修改的足够宽一行能装开5个盒子就不会换行了 */
+.box-body ul {
+    width: 1225px;
+
+}
+.box-body li {
+    float: left;
+    position: relative;
+    width: 230px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+}
+.box-body img {
+    /* 子绝父相 */
+    position: absolute;
+    top: 5px;
+    left: 193px;
+    /* width: 40px;
+    height: 25px; */
+}
+.box-body  .a1,
+.a6 {
+    background-image: url(../study/img/图层133.png);
+}
+
+.box-body li h4 {
+    margin: 175px 20px 15px 25px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #050505;
+    font-weight: 400;
+}
+.box-body li .info {
+    margin-left: 25px;
+    font-size: 12px;
+    color: #999999;
+}
+.info span {
+    color:#ff7c2d;
+    font-size: 12px;
+}
+.box-body  .a2,
+.a7 {
+    background-image: url(../study/img/a2.png);
+}
+.box-body  .a3,
+.a8 {
+    background-image: url(../study/img/a3.png);
+}
+.box-body  .a4,
+.a5,
+.a9,
+.a10{
+    background-image: url(../study/img/a4.png);
+}
+
+.footer {
+    height: 418px;
+    background-color: white;
+}
+
+.footer .w{
+    padding-top: 35px;
+}
+.copyright {
+    float: left;
+
+}
+
+.copyright p {
+    color: #666666;
+    font-size: 12px;
+    margin: 20px 0 15px 0;
+}
+
+.copyright a {
+    display: block;
+    width: 70px;
+    height: 36px;
+    padding: 0 25px;
+    line-height: 36px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #00a4ff;
+    border: 1px solid #00a4ff;
+}
+.links {
+    float: right;
+}
+.links dl {
+    float: left;
+    margin-left: 100px;
+}
+
+.links dl dd a{
+    color: #333333;
+    font-size: 12px;
+}
+.links dl dt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+} 
+.coding-part  .coding-hd{
+    height: 60px;
+    line-height: 60px;
+    margin-top: 10px;
+    
+}
+.coding-hd h3 {
+    float: left;
+    font-size: 20px;
+    font-weight: normal;
+    color: #494949;
+}
+.coding-hd ul {
+    float: left;
+    margin-left: 280px;
+}
+.coding-hd ul li {
+    float: left;
+    padding-left: 70px;
+}
+.coding-hd ul li a {
+
+    color: #868686;
+    font-size: 16px;
+}
+.coding-hd ul li .hot {  
+    color: #00a4ff;
+}
+.coding-hd>a {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.coding-bd {
+    width: 1205px;
+}
+
+.coding-bd .left {
+    float: left;
+    width: 229px;
+    height: 393px;
+    background-image: url(../study/img/coding-left.png);
+}
+.coding-bd .left h3 {
+    margin-top: 45px;
+    padding:0 30px 0 35px; 
+    line-height: 38px;
+    font-size: 18px;
+    color: #ffffff;
+}
+.coding-bd .left .p1 {
+    margin-top: 30px;
+    padding:0 35px 0 50px;
+    color: #fff;
+    font-size: 14px;
+}
+.coding-bd .left .p2 {
+    margin-top: 55px;
+    padding:0 35px 0 50px;
+    color: #fff;
+    font-size: 14px;
+}
+.coding-bd .left .p3 {
+    margin-top: 55px;
+    padding:0 35px 0 50px;
+    color: #fff;
+    font-size: 14px;
+}
+.coding-bd .right {
+    float: right;
+    
+}
+.coding-bd .right img {
+    float: right;
+    margin-bottom: 20px;
+}
+
+/* .coding-bd .right ul {
+    margin-top: 10px;
+} */
+.coding-bd .right li {
+    float: left;
+    width: 227px;
+    height: 272px;
+    margin-left: 15px;   
+    background-color: #fff;
+}
+.coding-bd .right li img {
+    width: 100%;
+}
+.coding-bd .right .li1 {
+    background: url(../study/img/coding-li1.png) no-repeat top center;
+}
+
+.coding-bd .right h4 {
+    margin-top: 180px;
+    padding: 0 22px;
+    font-weight: normal;
+    font-size: 14px;
+}
+.coding-bd .right .info {
+    margin-top: 20px;
+    padding-left: 22px;
+    color: #999999;
+    font-size: 12px;
+}
+.coding-bd .right .info span {
+    color: #ff7c2d;
+}
+
+.coding-bd .right li {
+    position: relative;
+}
+.coding-bd .right .hot {
+    position: absolute;
+    top: 5px;
+    left: 193px;
+    width: 40px;
+    height: 25px;
+} 
+.menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-top: 5px;
+    width: 150px;
+    height: 420px;
+    background-color: white;
+}
+.menu ul {
+    margin-top: 15px;
+}
+.menu li {
+    margin:5px 0;
+    height: 32px;
+    line-height: 32px;
+}
+.menu li a {    
+    padding-left: 20px;
+    color: #000;
+    font-size: 14px;
+    
+}

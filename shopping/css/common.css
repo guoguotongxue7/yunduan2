@@ -1,0 +1,368 @@
+/* 声明字体，注意fonts文件夹相对于html的位置！！！ */
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?tomleg') format('truetype'), url('../fonts/icomoon.woff?tomleg') format('woff'), url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+
+/* 版心 */
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.style_red {
+    color: #c81623;
+}
+
+
+/* 快捷导航模块 */
+
+.shortcut {
+    height: 31px;
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut ul li {
+    float: left;
+}
+
+.shortcut .fr span {
+    margin: auto 15px;
+}
+
+.arrow_icon::after {
+    /* 调用icomoon字体 */
+    content: '\e91e';
+    font-family: 'icomoon';
+    margin-left: 6px;
+}
+
+.header {
+    /* 子绝父相 */
+    position: relative;
+    height: 105px;
+    /* background-color: pink; */
+}
+
+.logo {
+    /* 用绝对定位来做，不改变盒子大小
+    如果用margin来写，子盒子和父盒子顶部重合，会影响父盒子header布局
+    https://blog.csdn.net/u012011360/article/details/41823125?utm_term=%E5%AD%90%E7%9B%92%E5%AD%90%E8%AE%BE%E7%BD%AEmargin%E5%BD%B1%E5%93%8D%E7%88%B6%E7%9B%92%E5%AD%90&utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-41823125&spm=3001.4430 */
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 171px;
+    height: 61px;
+    /* margin-top: 27px; */
+}
+
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    background: url(../images/logo.png) no-repeat;
+    font-size: 0;
+}
+
+.search {
+    position: absolute;
+    top: 25px;
+    left: 346px;
+    width: 538px;
+    height: 36px;
+    /* border: 2px solid #b1191a; */
+    box-sizing: border-box;
+}
+
+.search input {
+    /* button浮动，input也要跟着浮动否则布局会乱 */
+    float: left;
+    width: 454px;
+    height: 36px;
+    padding-left: 10px;
+    border: 2px solid #b1191a;
+}
+
+.search button {
+    /* button和input之间有间隙，添加浮动按钮就不会到盒子外了
+    或者把input和button写到一行 */
+    float: left;
+    width: 80px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #b1191a;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #fff;
+}
+
+.hotwords {
+    position: absolute;
+    top: 65px;
+    left: 346px;
+}
+
+.hotwords a {
+    margin: 0 10px;
+}
+
+.shoppingcart {
+    position: absolute;
+    top: 25px;
+    right: 64px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 1px solid #dfdfdf;
+    font-size: 12px;
+    color: #666666;
+}
+
+.shoppingcart::before {
+    content: '\e93a';
+    font-family: 'icomoon';
+    margin-right: 5px;
+    color: #da5555;
+}
+
+.shoppingcart::after {
+    content: '\e920';
+    font-family: 'icomoon';
+    margin-left: 10px;
+}
+
+.shoppingcart .count {
+    position: absolute;
+    top: -5px;
+    /* 左对齐，数字变化这个小盒子也是往右扩散的 */
+    left: 105px;
+    /* 不指定宽度而指定padding值，数字变化也不影响显示 */
+    height: 14px;
+    /* 行高继承了shoppingcart35px，需要再重新赋值 */
+    line-height: 14px;
+    padding: 0 5px;
+    background-color: #e60012;
+    color: #fff;
+    border-radius: 8px 7px 7px 0;
+}
+
+.nav {
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.nav .dropdown {
+    float: left;
+    width: 210px;
+    height: 47px;
+    color: #fff;
+    background-color: #b1191a;
+}
+
+.nav .navitems {
+    float: left;
+}
+
+.nav .dt {
+    width: 100%;
+    height: 47px;
+    font-size: 16px;
+    line-height: 47px;
+    text-align: center;
+}
+
+.nav .dd {
+    /* display: none; */
+    height: 465px;
+    background-color: #c81623;
+    border: 2px solid #c81623;
+    box-sizing: border-box;
+    /* 让dd部分下沉2px，到分割线下 */
+    margin-top: 2px;
+}
+
+.nav .dd ul li {
+    position: relative;
+    height: 31px;
+    line-height: 31px;
+    padding-left: 12px;
+}
+
+.nav .dd ul li:hover {
+    background-color: white;
+}
+
+.nav .dd li a {
+    font-size: 14px;
+    color: #fff;
+}
+
+.nav .dd li a::after {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    content: '\e920';
+    font-family: 'icomoon';
+}
+
+.nav .dd li:hover a {
+    color: #c81623;
+}
+
+.nav .navitems ul li {
+    float: left;
+}
+
+.nav .navitems ul li a {
+    display: block;
+    padding: 0 25px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
+    color: #333333;
+}
+
+
+/* 底部模块制作 */
+
+.footer {
+    width: 100%;
+    height: 415px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+}
+
+.mod_service {
+    height: 80px;
+    border-bottom: 1px solid #ededed;
+}
+
+.mod_service ul li {
+    float: left;
+    height: 50px;
+    width: 204px;
+    /* background-color: pink; */
+    padding-left: 35px;
+}
+
+.mod_service h5 {
+    float: left;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 6px;
+    /* background: url(../images/icons.png) no-repeat -252px -3px; */
+}
+
+.mod_service li:first-child h5 {
+    background: url(../images/icons.png) no-repeat -252px -3px;
+}
+
+.mod_service li:nth-child(2) h5 {
+    background: url(../images/icons.png) no-repeat -254px -54px;
+}
+
+.mod_service li:nth-child(3) h5 {
+    background: url(../images/icons.png) no-repeat -256px -106px;
+}
+
+.mod_service li:nth-child(4) h5 {
+    background: url(../images/icons.png) no-repeat -257px -157px;
+}
+
+.mod_service li:nth-child(5) h5 {
+    background: url(../images/icons.png) no-repeat -256px -209px;
+}
+
+.mod_service h4 {
+    padding-top: 7px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.mod_service p {
+    font-size: 12px;
+    color: #666666;
+}
+
+.mod_help {
+    height: 190px;
+    padding-top: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.mod_help dl {
+    float: left;
+    padding-left: 50px;
+    width: 145px;
+}
+
+.mod_help dt {
+    padding-bottom: 8px;
+    font-size: 16px;
+    color: #666;
+}
+
+.mod_help dd a {
+    line-height: 22px;
+    font-style: 12px;
+    color: #333;
+}
+
+.mod_help .mod_logo {
+    float: left;
+    width: 150px;
+    /* background-color: pink; */
+    text-align: center;
+}
+
+.mod_help .mod_logo h3 {
+    font-size: 16px;
+    color: #333;
+    padding-bottom: 15px;
+    font-weight: normal;
+}
+
+.mod_help .mod_logo h4 {
+    font-size: 12px;
+    font-weight: normal;
+    padding-top: 5px;
+}
+
+.mod_copyright {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.mod_copyright .links {
+    padding-bottom: 15px;
+    /* line-height: 28px; */
+}
+
+.mod_copyright .copyright {
+    height: 20px;
+    line-height: 20px;
+}
+
+.mod_copyright a {
+    padding: 0 8px;
+}

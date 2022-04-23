@@ -1,0 +1,306 @@
+body {
+    width: 100%;
+    height: 2000px;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #666;
+    background-color: #f6f6f6;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+img {
+    /* 让图片置顶 */
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+}
+
+a:hover {
+    color: #666;
+}
+
+.clearfix:after {
+    /* 清除浮动 */
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+
+/*禁用长按页面时的弹出菜单*/
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+
+/* -------------------------------header模块-------------------------------- */
+
+.app {
+    /* width: 100%; */
+    height: 50px;
+}
+
+ul {
+    margin: 0;
+    /* ul有默认padding: 40px; */
+    padding: 0;
+    list-style: none;
+}
+
+.app ul li {
+    float: left;
+    height: 50px;
+    background-color: #333;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    /* 只设置宽度，图片会等比例缩放 */
+    width: 10px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 35px;
+    /* 图片默认和基线对齐，修改为middle居中对齐 */
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #cd2525;
+}
+
+
+/* ------------------------------------搜索模块-------------------------------- */
+
+.search-wrap {
+    /* 固定定位，不占有原先的位置 */
+    position: fixed;
+    height: 44px;
+    /* background-color: #c82519; */
+    overflow: hidden;
+    width: 100%;
+    min-height: 320px;
+    max-width: 640px;
+}
+
+.search-btn {
+    /* 这里用定位不用浮动，因为中间的盒子用的标准流来写的，
+    浮动的话右边的盒子就在下一行靠右浮动了 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+}
+
+.search-btn::before {
+    content: '';
+    /* 伪元素是行内元素，需要转化为块级再插入背景图片 */
+    display: block;
+    width: 20px;
+    height: 18px;
+    margin: 14px 0 0 15px;
+    background: url(../images/s-btn.png) no-repeat;
+    /* 背景缩放 */
+    background-size: 20px 18px;
+}
+
+
+/* 搜索框 */
+
+.search {
+    position: relative;
+    /* 宽度不好指定，用标准流来写这个盒子，控制外边距，
+    就可以实现宽度可变，width=100%-40-40-左右margin值 */
+    height: 30px;
+    background-color: #fff;
+    margin: 0 50px;
+    margin-top: 7px;
+    border-radius: 15px;
+}
+
+.search .jd-icon {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 20px;
+    height: 15px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+
+.jd-icon::after {
+    position: absolute;
+    top: 0;
+    right: -8px;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+
+.search-icon {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background: url(../images/jd-sprites.png) no-repeat;
+    /* 二倍精灵图先缩放比例再测量位置，这样测出来的距离才能正常显示 */
+    background-position: -82px 0;
+    /* 精灵图整体缩放的大小 */
+    background-size: 200px;
+}
+
+.search input {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 12px;
+}
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    line-height: 44px;
+    color: #fff;
+}
+
+
+/* ---------------------------------主体部分----------------------------- */
+
+
+/* 轮播图部分 */
+
+.slider img {
+    /* 等比例缩放至和body一样宽 */
+    width: 100%;
+}
+
+
+/* 品牌日部分 */
+
+.brand {
+    border-radius: 10px 10px 0 0;
+    /* 溢出隐藏，否则看不出来圆角边框 */
+    overflow: hidden;
+}
+
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+
+.brand div img {
+    width: 100%;
+    /* 前面代码第15行已经让盒子置顶了，不然这里图片上面有间隙 */
+}
+
+
+/* 导航部分 */
+
+.nav ul li {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.nav ul li a {
+    width: 100%;
+    height: 80px;
+}
+
+.nav ul li a img {
+    width: 50px;
+    margin: 10px auto;
+}
+
+.nav ul li a span {
+    /* a浮动了,span的文字环绕图片,将span转换为块级元素就不会环绕文字了 */
+    display: block;
+}
+
+
+/* 新闻模块 */
+
+.news {
+    margin-top: 20px;
+}
+
+.news a {
+    float: left;
+    /* 加边框不影响盒子大小 */
+    box-sizing: border-box;
+}
+
+.news a:first-child {
+    /* 给图片父盒子a指定宽度百分比,然后再等比例缩放图片 */
+    width: 50%;
+}
+
+.news a:nth-child(n+2) {
+    /* n+2就是选择第二个以后的盒子 */
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
+
+.news a img {
+    width: 100%;
+}

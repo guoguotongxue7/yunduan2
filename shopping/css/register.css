@@ -1,0 +1,139 @@
+/* 更改头部区域 */
+
+header {
+    height: 84px;
+    border-bottom: 2px solid #b1191a;
+}
+
+
+/* 更改底部区域 */
+
+.footer {
+    height: 120px;
+    background-color: transparent;
+}
+
+
+/* 注册模块CSS */
+
+.register {
+    height: 522px;
+    margin-top: 20px;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+}
+
+.register_hd {
+    height: 42px;
+    line-height: 42px;
+    background-color: #ececec;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.register_hd h3 {
+    float: left;
+    padding-left: 10px;
+    font-size: 18pz;
+    font-weight: normal;
+    color: #333333;
+}
+
+.register_hd span {
+    float: right;
+    padding-right: 10px;
+}
+
+.reg_form {
+    width: 600px;
+    /* height: 422px; */
+    margin: 50px auto 0;
+    /* background-color: pink; */
+}
+
+.reg_form ul li {
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.reg_form ul li label {
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+
+.reg_form ul li input {
+    width: 240px;
+    height: 36px;
+    border: 1px solid #ececec;
+}
+
+.reg_form ul li .error_icon,
+.reg_form ul li .success_icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    vertical-align: middle;
+    background: url(../images/error.png) no-repeat;
+}
+
+.reg_form ul li .success_icon {
+    background: url(../images/success.png) no-repeat;
+}
+
+.error {
+    color: #df3033;
+}
+
+.success {
+    color: green;
+}
+
+.safe {
+    /* float: right; */
+    padding-left: 175px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #b2b2b2;
+}
+
+.safe em {
+    padding: 0 10px;
+    color: white;
+}
+
+.safe .weak {
+    background-color: #b1191a;
+}
+
+.safe .middle {
+    background-color: green;
+}
+
+.safe .strong {
+    background-color: orange;
+}
+
+.agreement {
+    margin: 40px 0;
+    padding-left: 94px;
+}
+
+.agreement input {
+    vertical-align: middle;
+}
+
+.agreement a {
+    color: blue;
+}
+
+.submit {
+    width: 200px;
+    height: 35px;
+    margin-left: 100px;
+    background-color: #b1191a;
+    font-feature-settings: 14px;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+}

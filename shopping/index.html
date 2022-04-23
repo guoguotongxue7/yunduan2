@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 网站说明 -->
+    <meta name="description" content="品优购-综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。商品来自全球数十万品牌商家，囊括家电、手机、电脑、服装、居家、母婴、美妆、个护、食品、生鲜等丰富品类，满足各种购物需求。" />
+    <!-- 关键词 -->
+    <meta name="Keywords" content="网上购物,网上商城,家电,手机,电脑,服装,居家,母婴" />
+    <title>品优购商城-综合网购首选-正品低价、品质保障、配送及时、轻松购物！</title>
+    <!-- 引入初始化样式 -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 引入首页样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 引入ico图标 -->
+    <link rel="shortcut icon" href="shopping.ico" />
+</head>
+
+
+<body>
+    <!-- 快捷导航模块 start-->
+    <section class="shortcut">
+        <div class="w">
+            <!-- 左边注册登录区域 -->
+            <div class="fl">
+                <ul>
+                    <li>品优购欢迎您！</li>
+                    <li>
+                        <a href="#">请登录&nbsp;</a>
+                        <a href="register.html" class="style_red">免费注册 </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 右边导航区域 -->
+            <div class="fr">
+                <a href="#">我的订单</a>
+                <span>|</span>
+                <!-- 用arrow_icon类的伪元素来写字体图标 -->
+                <a href="#" class="arrow_icon">我的品优购</a>
+                <span>|</span>
+                <a href="#">品优购会员</a>
+                <span>|</span>
+                <a href="#">企业采购</a>
+                <span>|</span>
+                <a href="#" class="arrow_icon">关注品优购</a>
+                <span>|</span>
+                <a href="#" class="arrow_icon">客户服务</a>
+                <span>|</span>
+                <a href="#" class="arrow_icon">网站导航</a>
+                <span>|</span>
+            </div>
+        </div>
+    </section>
+    <!-- 快捷导航模块 end-->
+    <!-- 头部区域 start-->
+    <header class="header w">
+        <!-- logo模块 -->
+        <div class="logo">
+            <h1>
+                <a href="index.html" title="品优购商城">品优购商城</a>
+            </h1>
+        </div>
+        <!-- 搜索模块  -->
+        <div class="search">
+            <input type="search" placeholder="语言开发">
+            <button>搜索</button>
+        </div>
+        <!-- 搜索热词模块 -->
+        <div class="hotwords">
+            <a href="#" class="style_red">优惠购首发 </a>
+            <a href="#">亿元优惠</a>
+            <a href="#">9.9元团购</a>
+            <a href="#">美满99减30</a>
+            <a href="#">办公用品</a>
+            <a href="#">电脑</a>
+            <a href="#">通信</a>
+        </div>
+        <!-- 购物车信息 -->
+        <div class="shoppingcart">
+            我的购物车
+            <i class="count">8</i>
+        </div>
+    </header>
+    <!-- 头部区域 end-->
+    <!-- 导航栏 start -->
+    <nav class="nav">
+        <div class="w">
+            <div class="dropdown">
+                <!-- 这个模块分为上下两部分，做成类似表单的样式 -->
+                <div class="dt">全部商品分类</div>
+                <div class="dd">
+                    <ul>
+                        <li>
+                            <a href="#">家用电器</a>
+                        </li>
+                        <li>
+                            <!-- 手机、数码、通信 三个不同的链接，所以应该分开写
+                            后面的没有改。。。 -->
+                            <a href="#">手机、</a><a href="#">数码、</a>
+                            <a href="#">通信</a>
+                        </li>
+                        <li>
+                            <a href="#">电脑、办公</a>
+                        </li>
+                        <li>
+                            <a href="#">家居、家具、家装、厨具</a>
+                        </li>
+                        <li>
+                            <a href="#">男装、女装、童装、内衣</a>
+                        </li>
+                        <li>
+                            <a href="#">个户化妆、清洁用品、宠物</a>
+                        </li>
+                        <li>
+                            <a href="#">鞋靴、箱包、珠宝、奢侈品</a>
+                        </li>
+                        <li>
+                            <a href="#">运动户外、钟表</a>
+                        </li>
+                        <li>
+                            <a href="#">汽车、汽车用品</a>
+                        </li>
+                        <li>
+                            <a href="#">母婴、玩具乐器</a>
+                        </li>
+                        <li>
+                            <a href="#">食品、酒类、生鲜、特产</a>
+                        </li>
+                        <li>
+                            <a href="#">医药保健</a>
+                        </li>
+                        <li>
+                            <a href="#">图书、音像、电子书</a>
+                        </li>
+                        <li>
+                            <a href="#">彩票、旅行、充值、票务</a>
+                        </li>
+                        <li>
+                            <a href="#">理财、众筹、白条、保险</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navitems">
+                <ul>
+                    <li>
+                        <a href="#">服装城</a>
+                    </li>
+                    <li>
+                        <a href="#">美妆馆</a>
+                    </li>
+                    <li>
+                        <a href="#">传智超市</a>
+                    </li>
+                    <li>
+                        <a href="#">全球购</a>
+                    </li>
+                    <li>
+                        <a href="#">闪购</a>
+                    </li>
+                    <li>
+                        <a href="#">团购</a>
+                    </li>
+                    <li>
+                        <a href="#">拍卖</a>
+                    </li>
+                    <li>
+                        <a href="#">有趣</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <!-- 导航栏 end -->
+    <!-- 首页main主体start -->
+
+    <div class="w">
+        <div class="main">
+            <div class="focus"></div>
+            <div class="newsflash">
+                <div class="news">
+                    <div class="news_hd clearfix">
+                        <h3>品优购快报</h3>
+                        <div class="more"><a href="#">更多</a></div>
+                    </div>
+                    <h4><b>[特惠]</b>备战开学季 全民半价购数码</h4>
+                    <h4><b>[公告]</b>品优稳占家电网购六成份额</h4>
+                    <h4><b>[特惠]</b>百元中秋全品类礼券限量领</h4>
+                    <h4><b>[公告]</b>上品优生鲜 享阳澄湖大闸蟹</h4>
+                    <h4><b>[特惠]</b>每日享折扣品优品质游</h4>
+                </div>
+                <div class="lifeservice">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>话费</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>机票</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>电影票</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>游戏</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>彩票</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>加油卡</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>酒店</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>火车票</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>众筹</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>理财</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>礼品卡</p>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i></i>
+                                <p>白条</p>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="bargin">
+                    <img src="upload/bargain.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 首页main主体end -->
+    <!-- 推荐模块start -->
+    <div class="recom w">
+        <div class="recom_hd">
+            <img src="images/recom.png" alt="">
+        </div>
+        <div class="recom_bd">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="upload/recom1.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="upload/recom2.png" alt="">
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="upload/recom3.png" alt="">
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="upload/recom4.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 推荐模块end -->
+    <!-- 猜你喜欢start -->
+    <div class="hotsale w">
+        <div class="hotsale_hd">
+            <h3>猜你喜欢</h3>
+            <div class="more"><a href="#">换一批</a></div>
+        </div>
+        <div class="hotsale_bd">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="pic">
+                            <img src="upload/hotsale_01.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h4>阳光美包新款单肩包女<br>包时尚子母包四件套女
+                            </h4>
+                            <div class="price style_red">
+                                ￥<span>116.00</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="upload/hotsale_02.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>爱仕达 30CM炒锅不粘<br>锅NWG8330E电磁炉炒
+                        </h4>
+                        <div class="price style_red">
+                            ￥<span>99.00</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="upload/hotsale_03.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>捷波朗<br>(jabra)BOOSI劲步
+                        </h4>
+                        <div class="price style_red">
+                            ￥<span>245.00</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="upload/hotsale_04.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>欧普<br>JYLZ08面板灯平板灯铝
+                        </h4>
+                        <div class="price style_red">
+                            ￥<span>238.00</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic">
+                        <img src="upload/hotsale_05.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>三星<br>(G5500)移动联
+                        </h4>
+                        <div class="price style_red">
+                            ￥<span>649.00</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+
+                    <div class="pic">
+                        <img src="upload/hotsale_06.png" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>韩国所望<br>紧致湿润精华露400ml
+                        </h4>
+                        <div class="price style_red">
+                            ￥<span>649.00</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- 猜你喜欢end -->
+    <!-- 传智播客 有趣区start -->
+    <div class="funsale w">
+        <div class="funsale_hd">
+            <h3>传智播客·有趣区</h3>
+        </div>
+        <div class="funsale_bd">
+            <!-- 好书榜 -->
+            <div class="booksale">
+                <a href="#">
+                    <h3>传智播客好书榜</h3>
+                    <h4>畅销推荐低至一折</h4>
+                    <div class="pic">
+                        <img src="upload/图层130.png" alt="">
+                    </div>
+                </a>
+            </div>
+            <!-- 好东西 -->
+            <div class="funbox">
+                <div class="funbox_hd">
+                    <h4>好东西</h4>
+                </div>
+                <div class="funbox_bd">
+
+                    <div class="funbox_recom">
+                        <a href="#">
+                            <h3>达人推荐</h3>
+                            <h4>雷神金属机械键盘</h4>
+                            <p class="style_red">与你相见恨晚</p>
+                        </a>
+                    </div>
+
+
+                    <div class="funbox_find">
+                        <a href="#">
+                            <h3>发现好物</h3>
+                            <h4>一不小心霸气外露</h4>
+                            <p class="style_red">等你来</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 品牌节 -->
+            <div class="brand">
+                <div class="brand_hd">品牌街</div>
+                <div class="brand_bd">
+                    <div class="brand_up">
+                        <a href="#">
+                            <h3>苏泊尔</h3>
+                            <h4>返厂大秀场</h4>
+                            <p class="style_red">精品直降100元</p>
+                        </a>
+
+                    </div>
+                    <div class="brand_down">
+                        <div class="brand_down1">
+                            <a href="#">
+                                <h3>国际大牌</h3>
+                                <h4>adidas</h4>
+                                <p class="style_red">部分3免1</p>
+                            </a>
+
+                        </div>
+                        <div class="brand_down2">
+                            <a href="#">
+                                <h3>本周特卖</h3>
+                                <h4>大牌折扣</h4>
+                                <p class="style_red">每周上新</p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 品牌链接 -->
+            <div class="brandlinks">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="upload/huawei.png" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="upload/sony.png" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="pic">
+                                <img src="" alt="">
+                            </div>
+
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 传智播客 有趣区end -->
+    <!-- 楼层区域制作start -->
+    <div class="floor_nav">
+        <ul>
+            <li><a href="#furniture">家用电器</a></li>
+            <li><a href="#">手机通讯</a></li>
+            <li><a href="#">电脑办公</a></li>
+        </ul>
+    </div>
+    <div class="floor">
+        <!-- 一楼:家用电器 -->
+        <div class="furniture w" id="furniture">
+            <div class="furniture_hd">
+                <h3 class="style_red">家用电器</h3>
+                <div class="tab_list">
+                    <ul>
+                        <li>
+                            <a href="#" class="style_red">热门</a>
+                            <span>|</span>
+                        </li>
+                        <li>
+                            <a href="#">大家电</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">生活电器</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">厨房电器</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">个护健康</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">应季电器</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">空气/净水</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">新奇特</a>
+                            <span>|</span>
+
+                        </li>
+                        <li>
+                            <a href="#">高端电器</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="furniture_bd">
+                <div class="tab_content_remen clearfix">
+                    <div class="col_210">
+                        <div class="col_210_nav">
+                            <ul>
+                                <li><a href="#">节能补贴</a></li>
+                                <li><a href="#">4K电视</a></li>
+                                <li><a href="#">空气净化器</a></li>
+                                <li><a href="#">IH电饭煲</a></li>
+                                <li><a href="#">滚筒洗衣机</a></li>
+                                <li><a href="#">电热水器</a></li>
+                            </ul>
+                        </div>
+                        <div class="col_210_pic">
+                            <a href="#">
+                                <h3 class="style_red">三星曲面电视</h3>
+                                <h4 class="style_red">抽奖送豪礼</h4>
+                                <img src="upload/图层110.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col_329">
+                        <a href="#">
+                            <h3>烧水壶智能光控泡茶壶茶具套装</h3>
+                            <h4>满299.00减40.00</h4>
+                            <div class="pic">
+                                <img src="upload/图层118拷贝.png" alt="">
+
+                            </div>
+                        </a>
+                        <ul class="col_329_nav">
+                            <li class="selected">
+                                <a href="#"> </a>
+
+                            </li>
+                            <li>
+                                <a href="#"> </a>
+                            </li>
+                            <li>
+                                <a href="#"> </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col_221">
+                        <div class="col_221_up">
+                            <a href="#">
+                                <h3>每满200减20元</h3>
+                                <h4 class="style_red">烘焙节1元抢购</h4>
+                                <div class="pic">
+                                    <img src="upload/图层114.png" alt="">
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col_221_down">
+                            <h3>买乐视电视享钜惠</h3>
+                            <h4 class="style_red">送60个月会员</h4>
+                            <div class="pic">
+                                <img src="upload/图层116.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col_2211">
+
+                        <h3>8.20彩电宅购节</h3>
+                        <h4>65寸4K智能电视3799</h4>
+                        <div class="pic">
+                            <img src="upload/图层113.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="col_219">
+                        <div class="col_219_up">
+                            <h3>消暑神器全场领券</h3>
+                            <h4 class="style_red">1元赢空调</h4>
+                            <div class="pic">
+                                <img src="upload/图层115.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col_219_down">
+                            <h3>买乐视电视享钜惠</h3>
+                            <h4 class="style_red">送60个月会员</h4>
+                            <div class="pic">
+                                <img src="upload/图层117.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="brandlinks">
+                    <ul>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 二楼:手机通讯 -->
+        <div class="phones w">
+            <div class="phones">
+                <div class="phones_hd">
+
+                </div>
+                <div class="phones_bd">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 楼层区域制作end -->
+
+        <!-- 底部start -->
+        <footer class='footer'>
+            <div class="w">
+                <div class="mod_service">
+                    <ul>
+                        <li>
+                            <h5></h5>
+                            <div class="service_txt">
+                                <h4>正品保障</h4>
+                                <p>正品保障，提供发票</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h5></h5>
+                            <div class="service_txt">
+                                <h4>极速物流</h4>
+                                <p>急速物流，急速送达</p>
+                            </div>
+
+                        </li>
+                        <li>
+                            <h5></h5>
+                            <div class="service_txt">
+                                <h4>无忧售后</h4>
+                                <p>7天无理由退换货</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h5></h5>
+                            <div class="service_txt">
+                                <h4>特色服务</h4>
+                                <p>私人定制家电套餐</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h5></h5>
+                            <div class="service_txt">
+                                <h4>帮助中心</h4>
+                                <p>您的购物指南</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mod_help">
+                    <div class="link1">
+                        <dl>
+                            <dt>购物指南</dt>
+                            <dd><a href="#">购物流程</a></dd>
+                            <dd><a href="#">会员介绍</a></dd>
+                            <dd><a href="#">生活旅行/团购</a></dd>
+                            <dd><a href="#">常见问题</a></dd>
+                            <dd><a href="#">大家电</a></dd>
+                            <dd><a href="#">联系客服</a></dd>
+                        </dl>
+                    </div>
+                    <div class="link2">
+                        <dl>
+                            <dt>配送方式</dt>
+                            <dd><a href="#">上门自提</a></dd>
+                            <dd><a href="#">211限时达</a></dd>
+                            <dd><a href="#">配送服务查询</a></dd>
+                            <dd><a href="#">配送费收取标准</a></dd>
+                            <dd><a href="#">海外配送</a></dd>
+                        </dl>
+                    </div>
+                    <div class="link3">
+                        <dl>
+                            <dt>支付方式</dt>
+                            <dd><a href="#">货到付款</a></dd>
+                            <dd><a href="#">在线支付</a></dd>
+                            <dd><a href="#">分期付款</a></dd>
+                            <dd><a href="#">邮局汇款</a></dd>
+                            <dd><a href="#">公司转账</a></dd>
+                        </dl>
+                    </div>
+                    <div class="link4">
+                        <dl>
+                            <dt>售后服务</dt>
+                            <dd><a href="#">售后政策</a></dd>
+                            <dd><a href="#">价格保护</a></dd>
+                            <dd><a href="#">退款说明</a></dd>
+                            <dd><a href="#">返修/退换货</a></dd>
+                            <dd><a href="#">取消订单</a></dd>
+                        </dl>
+                    </div>
+                    <div class="link5">
+                        <dl>
+                            <dt>特色服务</dt>
+                            <dd><a href="#">夺宝岛</a></dd>
+                            <dd><a href="#">DIY装机</a></dd>
+                            <dd><a href="#">延保服务</a></dd>
+                            <dd><a href="#">品优购E卡</a></dd>
+                            <dd><a href="#">品优购通信</a></dd>
+                        </dl>
+                    </div>
+                    <div class="mod_logo">
+                        <h3>帮助中心</h3>
+                        <img src="images/wx_cz.jpg" alt="">
+                        <h4>品优购客户端</h4>
+                    </div>
+
+                </div>
+                <div class="mod_copyright">
+                    <div class="links">
+                        <a href="#">关于我们</a>
+                        <span>|</span>
+                        <a href="#">联系我们</a>
+                        <span>|</span>
+                        <a href="#">联系客服</a>
+                        <span>|</span>
+                        <a href="#">商家入驻</a>
+                        <span>|</span>
+                        <a href="#">营销中心</a>
+                        <span>|</span>
+                        <a href="#">手机品优购</a>
+                        <span>|</span>
+                        <a href="#">友情链接</a>
+                        <span>|</span>
+                        <a href="#">销售联盟</a>
+                        <span>|</span>
+                        <a href="#">品优购社区</a>
+                        <span>|</span>
+                        <a href="#">品优购公益</a>
+                        <span>|</span>
+                        <a href="#">English Site</a>
+                        <span>|</span>
+                        <a href="#">Contact U</a>
+                    </div>
+                    <div class="copyright">
+                        地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br>京ICP备08001421号京公网安备110108007702
+                    </div>
+
+
+                </div>
+            </div>
+        </footer>
+        <!-- 底部end -->
+
+
+</body>
+
+</html>

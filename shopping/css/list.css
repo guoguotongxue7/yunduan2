@@ -1,0 +1,124 @@
+/* list独有css */
+
+.header .sk {
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    padding-left: 20px;
+    width: 75px;
+    height: 32px;
+    border-left: 1px solid #b1191a;
+}
+
+.nav .sk_list ul li {
+    float: left;
+}
+
+.nav .sk_list ul li a {
+    float: left;
+    padding: 0 28px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 47px;
+    color: #000000;
+}
+
+.nav .sk_con ul li {
+    float: left;
+}
+
+.nav .sk_con ul li a {
+    float: left;
+    padding: 0 22px;
+    font-size: 14px;
+    line-height: 47px;
+    /* color: #666666; */
+}
+
+.nav .sk_con ul li:last-child a::after {
+    content: '\e91e';
+    font-family: 'icomoon';
+}
+
+.container_bd ul {
+    margin-top: 25px;
+}
+
+.container_bd ul li {
+    float: left;
+    width: 290px;
+    height: 461px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.container_bd ul li:hover {
+    border: 1px solid #b1191a;
+}
+
+.container_bd .info h4 {
+    margin-top: 10px;
+    padding: 0 12px;
+    width: 290px;
+    height: 48px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+    box-sizing: border-box;
+}
+
+.info .price {
+    padding-left: 12px;
+    margin-top: 3px;
+}
+
+.info .price .original {
+    text-decoration: line-through;
+}
+
+.info .sk {
+    font-size: 22px
+}
+
+.info .progress {
+    padding-left: 12px;
+}
+
+.info .progress .bar {
+    /* position: relative; */
+    display: inline-block;
+    margin: 0 5px;
+    width: 132px;
+    height: 12px;
+    background-color: #fff;
+    border: 1px solid #b1191a;
+    border-radius: 6px;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.info .progress .bar_in {
+    float: left;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 87%;
+    height: 12px;
+    border-radius: 6px 0 0 6px;
+    vertical-align: baseline;
+    background-color: #b1191a;
+    border: 1px solid #b1191a;
+    box-sizing: border-box;
+}
+
+.info button {
+    /* display: block; */
+    width: 290px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #b1191a;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+}
