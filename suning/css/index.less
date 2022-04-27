@@ -1,0 +1,134 @@
+// 导入公共样式less文件
+@import "common";
+
+/* ========================================================== */
+/* ================方案一： less+media+rem布局================ */
+/* ========================================================== */
+
+
+
+body {
+    min-width: 320px;
+    width: 15rem;
+    // body宽度和屏幕一样宽，最大15rem=750px
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+}
+
+// -------------------------顶部搜索框-----------------------
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 15rem;
+    /*  在750px屏幕中搜索框高度88px，88/50得到高度与字体大小的比例再加上rem单位就可以实现不同屏幕比例适配了 */
+    height: (88rem / 50);
+    margin: 0 auto;
+    /*  水平居中另一个写法：
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%); 
+    transform: translateX(-50%);
+    */
+    background-color: #ffc001;
+    // align-items: center;
+
+
+    .classify {
+        width: (44rem / @baseFont);
+        height: (70rem / @baseFont);
+        margin: auto (25rem / @baseFont) auto (25rem / @baseFont);
+        background: url(../images/classify.png) no-repeat;
+        // 背景图片缩放至和盒子一样大小
+        background-size: (44rem / @baseFont ) (70rem / @baseFont);
+    }
+
+    .search {
+        flex: 1;
+        // background-color: aqua;
+
+        input {
+            width: 100%;
+            height: (66rem / @baseFont);
+            padding-left: (54rem / @baseFont);
+            // margin-top: (-12rem / @baseFont);
+            border-radius: (33rem / @baseFont);
+            background-color: #f2f2f2;
+            line-height: (66rem / @baseFont);
+            font-size: (25rem / @baseFont);
+            color: #757575;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+        }
+    }
+
+    .login {
+        width: (75rem / @baseFont);
+        width: (70rem / @baseFont);
+        margin: auto (10rem / @baseFont) auto (25rem / @baseFont);
+        // background-color: teal;
+        line-height: (70rem / @baseFont);
+        text-align: center;
+        font-size: (25rem / @baseFont);
+        color: #fff;
+    }
+}
+
+
+// -------------------------banner-----------------------
+
+.banner {
+    width: (750rem / @baseFont);
+    height: (368rem / @baseFont);
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// -------------------------广告部分-----------------------
+.ad {
+    // 不指定宽高，让图片撑开盒子。flex布局一分为三
+    display: flex;
+
+    a {
+        flex: 1;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// -------------------------导航部分-----------------------
+
+nav {
+    width: (750rem / @baseFont);
+
+    a {
+        float: left;
+        width: (150rem / @baseFont);
+        height: (140rem / @baseFont);
+        text-align: center;
+
+        img {
+            display: block;
+            // auto只能块级元素用，转换成块级元素来定位
+            width: (82rem / @baseFont);
+            height: (82rem / @baseFont);
+            margin: (10rem / @baseFont) auto 0;
+        }
+
+        span {
+            // img转换为块级元素把span挤下去了，都转换为块级盒子就不会被挤了
+            display: block;
+            font-size: (25rem / @baseFont);
+            color: #333;
+        }
+    }
+}
