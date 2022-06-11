@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "iconfont";
+    /* Project id  */
+    src: url('font_qned28qim3j/iconfont.ttf?t=1651745271758') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cuowu:before {
+    content: "\e600";
+}
+
+.icon-zhengque:before {
+    content: "\e601";
+}

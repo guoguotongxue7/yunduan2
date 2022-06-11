@@ -1,0 +1,22 @@
+@border: 5px + 5;
+
+@baseFont: 50px;
+
+html {
+    font-size: @baseFont;
+}
+
+div {
+    width: 200px - 50;
+    height: 200px * 2;
+    border: @border solid red;
+    background-color: #666666 - #222222;
+
+
+}
+
+img {
+    // 除法要加上小括号
+    width: (82rem / @baseFont);
+    height: (82 / @baseFont);
+}

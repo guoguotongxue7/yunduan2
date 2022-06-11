@@ -7,55 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        
-        .father {
-            position: relative;
-            width: 300px;
+        div {
+            display: flex;
+            width: 60%;
             height: 300px;
             background-color: pink;
             margin: 100px auto;
+            /* 让三个子盒子一起沿着侧轴下来 */
+            align-items: flex-end;
         }
         
-        .son {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            overflow: hidden;
-            width: 100px;
+        div span {
+            width: 150px;
             height: 100px;
-            transform: translate(-50%, -50%);
-            background-color: gray;
-        }
-        
-        .box {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100px;
-            height: 100px;
-            margin-top: 50px;
-            margin-left: -50px;
             background-color: skyblue;
-            transition: all 0.5s;
-            transform-origin: top left;
+            margin-right: 5px;
         }
         
-        .father:hover .box {
-            transform: rotate(-90deg);
+        div span:nth-child(2) {
+            align-self: center;
+        }
+        
+        div span:nth-child(1) {
+            order: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="father">
-        <div class="son">
-            <div class="box"></div>
-        </div>
 
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
     </div>
 </body>
 

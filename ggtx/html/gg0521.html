@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        let div = document.querySelector('div');
+        // 获取手指的初始坐标
+        let startX = 0;
+        let startY = 0;
+        // 获取盒子的初始位置
+        let x = 0;
+        let y = 0;
+
+        div.addEventListener('touchstart', function(e) {
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            x = this.offsetLeft;
+            y = this.offsetTop;
+        });
+
+
+        div.addEventListener('touchmove', function(e) {
+            // 手指移动距离= 手机移动后的坐标-手指初始坐标
+            let moveX = e.targetTouches[0].pageX - startX;
+            let moveY = e.targetTouches[0].pageY - startY;
+
+            // 盒子坐标=盒子初始位置+手指移动距离
+            this.style.left = x + moveX + 'px';
+            this.style.top = y + moveY + 'px';
+
+
+            // 阻止屏幕滚动的默认行为
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/zy.media.min.css">
+    <script src="../js/zy.media.min.js"></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="username"> <input type="checkbox" name="" id="remember"> 记住用户名
+
+    <script>
+        var students = [{
+            id: 100,
+            name: "why",
+            age: 18,
+            money: 100
+        }, {
+            id: 101,
+            name: "kobe",
+            age: 18,
+            money: 200
+        }, {
+            id: 102,
+            name: "james",
+            age: 25,
+            money: 200
+        }, {
+            id: 103,
+            name: "why",
+            age: 22,
+            money: 150
+        }]
+
+        // var stu = students.find(function(item) {
+        //     if (item.id === 101) return true
+        // })
+        // console.log(stu)
+        function findNSYW(fn, array) {
+            let bestStu = array[0]; //最优秀的学生
+            let index = 1;
+            while (index < array.length) {
+                bestStu = fn(bestStu, array[index]);
+                index++;
+            }
+            console.log(bestStu);
+        }
+        //fn 完成比较，比较两个对象的钱最多的中年龄最小的
+        let compare = function(stu1, stu2) {
+            if (stu1.money > stu2.money) {
+                return stu1;
+            } else if (stu1.money < stu2.money) {
+                return stu2;
+            } else {
+                if (stu1.age <= stu2.age) {
+                    return stu1;
+                } else {
+                    return stu2;
+                }
+            }
+        }
+        findNSYW(compare, students);
+    </script>
+</body>
+
+</html>

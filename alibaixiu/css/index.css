@@ -1,0 +1,189 @@
+/* 本次项目的UI设计时基于1280屏幕设计的.所以我们第一步先修改container的最大宽度,修改到1280px */
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+/* ------------ 一些基本初始化样式 ----------------- */
+body {
+  background-color: #f5f5f5;
+}
+.container {
+  background-color: #fff;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+/* ----------------  header部分 ----------------- */
+.header {
+  padding-left: 0;
+}
+.header .logo {
+  background-color: #429ad9;
+}
+.header .logo a img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  /* 1.超小屏幕下，img隐藏：加class="hidden-xs"
+               2.span标题显示 class="visible-xs"*/
+}
+.header .logo a span {
+  display: block;
+  height: 50px;
+  margin: 0 auto;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+.header .nav {
+  background-color: #eeeeee;
+  border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 991px) {
+  .header .nav ul li {
+    float: left;
+    width: 20%;
+  }
+}
+.header .nav ul li a {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 30px;
+  font-size: 16px;
+  /* 进入超小屏幕时，li里的文字大小改小一点 */
+}
+@media screen and (max-width: 767px) {
+  .header .nav ul li a {
+    font-size: 14px;
+  }
+}
+.header .nav ul li a:hover {
+  background-color: #fff;
+}
+/* ---------------- article部分 ----------------- */
+article {
+  /* 进入超小屏幕时，左侧导航栏变小，article在nav下面，需要加一个外边距 */
+}
+@media screen and (max-width: 767px) {
+  article {
+    margin-top: 10px;
+  }
+}
+article .news li {
+  float: left;
+  width: 25%;
+  height: 128px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  /* 进入超小屏幕时，第一个li宽度100%，剩下的li宽度50% */
+}
+@media screen and (max-width: 767px) {
+  article .news li {
+    width: 50%;
+  }
+}
+article .news li > a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+article .news li > a img {
+  width: 100%;
+  height: 100%;
+}
+article .news li > a p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 41px;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 0;
+}
+article .news li:first-child {
+  width: 50%;
+  height: 266px;
+  /* 进入超小屏幕时，第一个li宽度100%，剩下的li宽度50% */
+}
+@media screen and (max-width: 767px) {
+  article .news li:first-child {
+    width: 100%;
+  }
+}
+article .news li:first-child a p {
+  padding: 0 10px;
+  line-height: 41px;
+  font-size: 20px;
+}
+article .carousel,
+article .carousel img {
+  height: 266px !important;
+  width: 100%;
+}
+article .carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 41px;
+  line-height: 41px;
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 16px !important;
+  color: #fff;
+  margin-bottom: 0;
+}
+article .publish {
+  border-top: 1px solid #ccc;
+}
+article .publish .row {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  /* 进入超小屏幕时，h3字体变小 */
+}
+@media screen and (max-width: 767px) {
+  article .publish .row h3 {
+    font-size: 14px;
+  }
+}
+article .publish .row .pic {
+  width: 100%;
+  margin-top: 10px;
+  /*  超小屏幕下，图片和不重要的段落不显示
+                    给p段落和pic类加class="hidden-xs" */
+}
+/* ---------------- aside部分 ----------------- */
+aside .banner img {
+  width: 100%;
+  height: 100%;
+}
+aside .hot {
+  display: block;
+  margin-top: 10px;
+  padding: 0 20px 20px;
+  border: 1px solid #ccc;
+}
+aside .hot span {
+  border-radius: 0;
+  margin-bottom: 20px;
+}
+aside .hot p {
+  font-size: 12px;
+}

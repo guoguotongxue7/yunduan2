@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://fastly.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://fastly.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- 引入首页样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 先引入jquery js -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 左侧的导航部分 -->
+            <header class="header col-md-2">
+                <!-- 这里只需要消除左边距,所以没有加row行 -->
+                <div class="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="" class="hidden-xs">
+                        <span class="visible-xs">阿里百秀</span>
+                    </a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-camera"></span> 生活馆
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-picture
+                                "></span> 自然汇
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-phone
+                                "></span> 科技湖
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-gift
+                                "></span> 奇趣事
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-glass
+                                "></span> 美食杰
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- 中间的主体文章内容部分 -->
+            <article class="col-md-7">
+                <div class="news clearfix">
+                    <ul>
+                        <li>
+                            <!-- bootstrap轮播图 -->
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img src="upload/banner.dpg" alt="...">
+                                        <div class="carousel-caption">
+                                            阿里佰秀1
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="upload/banner1.dpg" alt="...">
+                                        <div class="carousel-caption">
+                                            阿里佰秀2
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="upload/banner2.dpg" alt="...">
+                                        <div class="carousel-caption">
+                                            阿里佰秀3
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <img src="upload/banner3.dpg" alt="...">
+                                        <div class="carousel-caption">
+                                            阿里佰秀4
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <script>
+                                $('.carousel').carousel({
+                                    interval: 2000
+                                })
+                            </script>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="upload/2.jpg" alt="">
+                                <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="upload/2.jpg" alt="">
+                                <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="upload/2.jpg" alt="">
+                                <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="upload/2.jpg" alt="">
+                                <p>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="publish">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class=" hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18)<span class=" hidden-xs"> 标签：健康 / 感染 / 指甲 / 疾病 / 皮肤 / 营养 / 趣味生活</span></p>
+
+                        </div>
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted  hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class=" hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class=" hidden-xs"> 标签：健康 / 感染 / 指甲 / 疾病 / 皮肤 / 营养 / 趣味生活</span></p>
+                        </div>
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class=" hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class=" hidden-xs"> 标签：健康 / 感染 / 指甲 / 疾病 / 皮肤 / 营养 / 趣味生活</span></p>
+                        </div>
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted  hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class=" hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class=" hidden-xs"> 标签：健康 / 感染 / 指甲 / 疾病 / 皮肤 / 营养 / 趣味生活</span></p>
+                        </div>
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h3>生活馆 关于指甲的10个健康知识 你知道几个？</h3>
+                            <p class="text-muted hidden-xs">alibaixiu 发布于 2015-11-23</p>
+                            <p class=" hidden-xs">指甲是经常容易被人们忽略的身体部位， 事实上从指甲的健康状况可以看出一个人的身体健康状况， 快来看看10个暗藏在指甲里知识吧！</p>
+                            <p class="text-muted">阅读(2417)评论(1)赞 (18) <span class=" hidden-xs"> 标签：健康 / 感染 / 指甲 / 疾病 / 皮肤 / 营养 / 趣味生活</span></p>
+                        </div>
+                        <div class="col-sm-3 pic hidden-xs">
+                            <img src="upload/4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- 右边的侧边栏部分 -->
+            <aside class="col-md-3">
+                <a href="#" class="banner">
+                    <img src="upload/zgboke.jpg" alt="">
+                </a>
+                <a class="hot" href="#">
+                    <span class="btn btn-primary">热搜</span>
+                    <h4 class="text-primary">欢迎加入中国博客联盟</h4>
+                    <p>这里收录国内各个领域的优秀博客，是一个全人工编辑的开放式博客联盟交流和展示平台.....</p>
+                </a>
+            </aside>
+        </div>
+
+    </div>
+</body>
+
+</html>

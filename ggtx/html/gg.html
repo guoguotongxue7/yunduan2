@@ -6,26 +6,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_3378332_bgm55lnxwqf.css">
 
-    </style>
-    <script>
-        let fruit = prompt('请输入一个水果');
-        switch (fruit) {
-            case '苹果':
-                alert('苹果价格是xxx');
-                break;
-            case '香蕉':
-                alert('香蕉xxx');
-                break;
-            default:
-                alert('没有');
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
         }
-    </script>
+        
+        i {
+            font-style: normal;
+        }
+        
+        form {
+            width: 500px;
+            padding: 20px;
+            border: 10px solid pink;
+            border-radius: 15px;
+            margin: 30px auto;
+        }
+        
+        form label {
+            display: block;
+            /* 子绝父相 */
+            position: relative;
+            width: 100%;
+            height: 30px;
+            padding: 10px 0 20px;
+        }
+        
+        form label span {
+            /* 提示文字默认不显示，用户名输入不满足条件时显示 */
+            display: none;
+            position: absolute;
+            left: 10px;
+            bottom: 5px;
+            font-size: 12px;
+            color: red;
+        }
+        
+        form label span.error {
+            /* 不满足条件，显示提示文字 */
+            display: block;
+        }
+        
+        form label i {
+            position: absolute;
+            top: 15px;
+            left: 250px;
+            width: 20px;
+            height: 20px;
+            /* background-color: tomato; */
+        }
+        
+        form label i.icon-cuowu {
+            color: red;
+        }
+        
+        form label i.icon-zhengque {
+            color: green;
+        }
+    </style>
+
+
 </head>
 
 <body>
-    <div></div>
+    <form action="">
+        <label>
+        用户名：<input type="text"> 
+        <i class="iconfont"></i>
+        <i class="iconfont"></i>
+        <span>只能由数字字母下划线组成，6~12位，不能以_开头</span>
+    </label>
+
+    </form>
+
+
+    <script>
+        const reg = /^[0-9a-zA-Z]\w{5,11}$/;
+        let timer = 0;
+
+        const i = document.querySelector('i');
+        const span = document.querySelector('span');
+        // 1.获取input文本框绑定事件
+        const inp = document.querySelector('input');
+        inp.addEventListener('input', function() {
+            // 防抖
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                // 2.随时进行正则验证
+                if (reg.test(this.value)) {
+                    // √显示
+                    i.classList.add('icon-zhengque');
+                    i.classList.remove('icon-cuowu');
+                    span.classList.remove('error');
+                } else {
+                    // ×显示，提示文本显示
+                    i.classList.add('icon-cuowu');
+                    i.classList.remove('icon-zhengque');
+                    span.classList.add('error');
+                }
+
+            }, 300)
+        })
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,261 @@
+/* 本次项目的UI设计时基于1280屏幕设计的.所以我们第一步先修改container的最大宽度,修改到1280px */
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+
+}
+
+/* ------------ 一些基本初始化样式 ----------------- */
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+/* ----------------  header部分 ----------------- */
+.header {
+    // 给header消除内边距,注意权重问题:标签选择器权重低不生效,所以这里用了类选择器.header
+    padding-left: 0;
+
+    .logo {
+        background-color: #429ad9;
+
+        a {
+            img {
+                display: block;
+                // 这里不保证图片随父盒子的大小变化而变化
+                max-width: 100%;
+                // 图片居中
+                margin: 0 auto;
+
+
+                /* 1.超小屏幕下，img隐藏：加class="hidden-xs"
+               2.span标题显示 class="visible-xs"*/
+            }
+
+            span {
+                display: block;
+                height: 50px;
+                margin: 0 auto;
+                line-height: 50px;
+                text-align: center;
+                font-size: 20px;
+                color: #fff;
+            }
+        }
+    }
+
+    .nav {
+        background-color: #eeeeee;
+        border-bottom: 1px solid #ccc;
+
+
+        ul li {
+
+            // 进入小屏幕和超小屏幕时，li浮动起来，宽度20%，这样就刚好一行 
+            @media screen and (max-width:991px) {
+                & {
+                    float: left;
+                    width: 20%;
+                    // margin-bottom: 10px;
+                }
+            }
+
+
+
+            a {
+                display: block;
+                height: 50px;
+                line-height: 50px;
+                padding-left: 30px;
+                font-size: 16px;
+
+                /* 进入超小屏幕时，li里的文字大小改小一点 */
+                @media screen and (max-width:767px) {
+                    & {
+                        font-size: 14px;
+                    }
+                }
+
+                &:hover {
+                    background-color: #fff;
+
+                }
+            }
+        }
+
+
+    }
+}
+
+/* ---------------- article部分 ----------------- */
+article {
+
+    /* 进入超小屏幕时，左侧导航栏变小，article在nav下面，需要加一个外边距 */
+    @media screen and (max-width:767px) {
+        & {
+            margin-top: 10px;
+        }
+    }
+
+    // 图片新闻部分
+    .news {
+        li {
+            float: left;
+            width: 25%;
+            height: 128px;
+            // 盒子之间的缝隙用padding来写,用margin的话宽度溢出就会布局错误
+            padding-right: 10px;
+            margin-bottom: 10px;
+
+            /* 进入超小屏幕时，第一个li宽度100%，剩下的li宽度50% */
+            @media screen and (max-width:767px) {
+                & {
+                    width: 50%;
+                }
+            }
+
+            &>a {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    // 这里宽度高度都要百分百.和父盒子一样大
+                    width: 100%;
+                    height: 100%;
+                }
+
+                p {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 41px;
+                    // 有上下边距
+                    padding: 5px 10px;
+                    background-color: rgba(0, 0, 0, .5);
+                    font-size: 12px;
+                    color: #fff;
+                    // p标签默认的下外边距取消
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        li:first-child {
+            width: 50%;
+            height: 266px;
+
+            /* 进入超小屏幕时，第一个li宽度100%，剩下的li宽度50% */
+            @media screen and (max-width:767px) {
+                & {
+                    width: 100%;
+                }
+            }
+
+            a p {
+                // 没有上下边距
+                padding: 0 10px;
+                line-height: 41px;
+                font-size: 20px;
+            }
+        }
+
+    }
+
+    // 轮播图
+    .carousel,
+    .carousel img {
+        height: 266px !important;
+        width: 100%;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 41px;
+        line-height: 41px;
+        // 有上下边距
+        padding: 0 !important;
+        background-color: rgba(0, 0, 0, .5);
+        font-size: 16px !important;
+        color: #fff;
+        // p标签默认的下外边距取消
+        margin-bottom: 0;
+    }
+
+    // 文章部分
+
+    .publish {
+        border-top: 1px solid #ccc;
+
+        .row {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+
+            /* 进入超小屏幕时，h3字体变小 */
+            @media screen and (max-width:767px) {
+                & h3 {
+                    font-size: 14px;
+                }
+            }
+
+            .pic {
+                width: 100%;
+                margin-top: 10px;
+
+                /*  超小屏幕下，图片和不重要的段落不显示
+                    给p段落和pic类加class="hidden-xs" */
+            }
+        }
+
+    }
+}
+
+/* ---------------- aside部分 ----------------- */
+aside {
+    .banner img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .hot {
+        display: block;
+        margin-top: 10px;
+        padding: 0 20px 20px;
+        border: 1px solid #ccc;
+
+        span {
+            border-radius: 0;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}

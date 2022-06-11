@@ -7,34 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        section {
-            width: 100%;
-            max-width: 800px;
-            min-width: 300px;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul li {
+            list-style: none;
+        }
+        
+        .container {
+            width: 750px;
             margin: 0 auto;
         }
         
-        section div {
+        .container ul li {
             float: left;
-            width: 50%;
-            height: 300px;
+            width: 93.75px;
+            height: 30px;
+            background-color: aqua;
         }
         
-        section div:nth-child(1) {
-            background-color: pink;
-        }
-        
-        section div:nth-child(2) {
-            background-color: skyblue;
+        @media screen and (max-width: 767px) {
+            /* 屏幕宽度小于767px时,一行显示三个li */
+            .container {
+                width: 100%;
+            }
+            .container ul li {
+                width: 33.33%;
+            }
         }
     </style>
 </head>
 
 <body>
-    <section>
-        <div></div>
-        <div></div>
-    </section>
+    <div class="container">
+        <ul>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+        </ul>
+    </div>
 </body>
 
 </html>

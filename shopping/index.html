@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="css/index.css">
     <!-- 引入ico图标 -->
     <link rel="shortcut icon" href="shopping.ico" />
+    <!-- 引入动画js文件,要放在首页Js之前,否则轮播图程序执行时查找不到动画js -->
+    <script src="js/animate.js"></script>
+    <!-- 引入首页轮播图js文件 -->
+    <script src="js/index1.js"></script>
 </head>
 
 
@@ -181,7 +185,41 @@
 
     <div class="w">
         <div class="main">
-            <div class="focus"></div>
+            <div class="focus">
+                <!-- 左侧按钮 -->
+                <a href="javascript:;" class="arrow-l">&lt;</a>
+                <!-- 右侧按钮 -->
+                <a href="javascript:;" class="arrow-r">&gt;</a>
+                <!-- 核心滚动区域 -->
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="upload/focus.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="upload/focus1.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="upload/focus2.jpg" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="upload/focus3.jpg" alt="">
+                        </a>
+                    </li>
+
+
+                </ul>
+                <!-- 小圆圈 -->
+                <ol class="circle">
+
+                </ol>
+            </div>
             <div class="newsflash">
                 <div class="news">
                     <div class="news_hd clearfix">

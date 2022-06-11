@@ -95,6 +95,7 @@ ul {
 .app ul li:nth-child(1) img {
     /* 只设置宽度，图片会等比例缩放 */
     width: 10px;
+    margin-top: 20px;
 }
 
 .app ul li:nth-child(2) {
@@ -122,12 +123,13 @@ ul {
 .search-wrap {
     /* 固定定位，不占有原先的位置 */
     position: fixed;
-    height: 44px;
+    /* height: 44px; */
     /* background-color: #c82519; */
     overflow: hidden;
     width: 100%;
-    min-height: 320px;
+    /* min-height: 320px; */
     max-width: 640px;
+    z-index: 9999;
 }
 
 .search-btn {
@@ -137,7 +139,7 @@ ul {
     top: 0;
     left: 0;
     width: 40px;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .search-btn::before {
@@ -218,7 +220,7 @@ ul {
     top: 0;
     right: 0;
     width: 40px;
-    height: 100%;
+    /* height: 100%; */
     line-height: 44px;
     color: #fff;
 }
@@ -229,9 +231,35 @@ ul {
 
 /* 轮播图部分 */
 
-.slider img {
-    /* 等比例缩放至和body一样宽 */
+.swiper {
     width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 

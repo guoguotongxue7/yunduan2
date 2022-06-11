@@ -57,6 +57,7 @@ header {
 
 .reg_form ul li label {
     display: inline-block;
+    /* label宽度一致，表单左边就可以文字对齐 */
     width: 88px;
     text-align: right;
 }
