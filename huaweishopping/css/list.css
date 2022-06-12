@@ -1,0 +1,92 @@
+/* --------------导航------------------ */
+.crumbs {
+  height: 63px;
+  line-height: 63px;
+  font-size: 12px;
+}
+.crumbs .item {
+  cursor: pointer;
+}
+.crumbs .item:last-child {
+  color: #000;
+}
+.operation {
+  padding: 0 24px;
+  background-color: #fff;
+  font-size: 12px;
+}
+.operation .row {
+  display: flex;
+}
+.operation .row .item {
+  width: 104px;
+  height: 48px;
+  line-height: 48px;
+  color: #000;
+  cursor: pointer;
+}
+.operation .row .item:first-child {
+  color: #666;
+  cursor: auto;
+}
+.operation .row .item.active {
+  color: #cf0a2c;
+}
+/* ------------------商品列表--------------------- */
+.products {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.products .item {
+  width: 291px;
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+.products .item a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.products .item .album {
+  width: 180px;
+  height: 180px;
+  margin: 30px 0;
+}
+.products .item .name {
+  font-weight: bold;
+  color: #000;
+}
+.products .item .promotion {
+  margin-top: 8px;
+  color: #666;
+}
+.products .item .price {
+  margin: 15px 0 10px;
+  color: #cf0a2c;
+  font-weight: bold;
+  font-size: 16px;
+}
+.products .item .service {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px 0;
+}
+.products .item .service .tip {
+  margin: 0 3px;
+  padding: 0 3px;
+  border: 1px solid #cf0a2c;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #cf0a2c;
+}
+.products .item .comment {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 15px;
+}
+.products .item .comment span {
+  margin: 0 5px;
+  color: #666;
+}
