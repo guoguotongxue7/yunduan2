@@ -63,6 +63,7 @@ function filterResultListFunction() {
     console.log(showResultList);
     // 调用数据展示函数，重新展示数据
     showResultListFunction();
+    addEmptyLiAction();
 }
 
 
@@ -106,5 +107,19 @@ function showResultListFunction() {
 
 
         productEl.append(itemEl);
+    }
+}
+
+// 如果商品最后一行不能完全占满一行，需要添加空的li来占位置
+function addEmptyLiAction() {
+    console.log(showResultList.length % 4);
+    if ((showResultList.length % 4) !== 0) {
+
+        for (let i = 0; i < (4 - showResultList.length % 4); i++) {
+            let itemEl = document.createElement("li");
+            itemEl.classList.add("item");
+            itemEl.classList.add("empty");
+            productEl.append(itemEl);
+        }
     }
 }
