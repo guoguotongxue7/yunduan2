@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {}
+        
+        .box button {
+            font-size: 16px;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+        
+        .box button.active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button>red</button>
+        <button>blue</button>
+        <button>yellow</button>
+    </div>
+    <div class="list"></div>
+
+    <script>
+        let friends = [{
+            name: "ggtx",
+            colors: ["blue", "black", "white"]
+        }, {
+            name: "yubo",
+            colors: ["pink", "blue", "white"]
+        }, {
+            name: "zhengyi",
+            colors: ["pink", "orange", "yellow"]
+        }, {
+            name: "daye",
+            colors: ["black", "red", "purple"]
+        }];
+
+        // 点击按钮，切换active
+        let boxEl = document.querySelector(".box");
+        let frindsFilters = [];
+        boxEl.addEventListener("click", function(event) {
+            // console.log(event.target.tagName);
+            if (event.target.tagName === 'BUTTON') {
+                event.target.classList.toggle("active");
+                if (event.target.classList.contains("active")) {
+                    // 有active类则增加相应的过滤条件
+                    // console.log(event.target.textContent.trim());
+                    frindsFilters.push(event.target.textContent.trim());
+                } else {
+                    // 没有active类则删除该过滤条件
+                    let filterItem = event.target.textContent.trim();
+                    let filterIndex = frindsFilters.findIndex(function(item) {
+                        return item === filterItem;
+                    })
+                    frindsFilters.splice(filterIndex, 1);
+
+                }
+                // 调用过滤函数
+                filterFriendsAction()
+            }
+
+        })
+        let showFriends = friends;
+
+        function filterFriendsAction() {
+            showFriends = friends.filter(function(item) {
+                let isFlag = true;
+                // 遍历frindsFilters中的过滤条件，查找firends是否包含条件，包含的话就返回true
+                for (let filterItem of frindsFilters) {
+                    if (!item.colors.includes(filterItem)) {
+                        isFlag = false;
+                        break;
+                    }
+
+                }
+                return isFlag;
+            });
+            // 重新输出
+            showFriendsAction();
+        }
+
+
+        showFriendsAction(); //默认输出
+
+
+        function showFriendsAction() {
+            let listEl = document.querySelector(".list");
+            // 先清空list内容
+            listEl.textContent = '';
+            for (let item of showFriends) {
+                // console.log(item.name);
+                let divEl = document.createElement("div");
+                divEl.textContent = item.name;
+                listEl.append(divEl);
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
