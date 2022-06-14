@@ -1,5 +1,6 @@
 .banner .images {
   position: relative;
+  height: 550px;
 }
 .banner .images .item {
   position: absolute;
@@ -41,11 +42,16 @@
 .banner .control .right {
   right: 0;
 }
+.banner {
+  position: relative;
+}
 .banner .indicator {
   display: flex;
-  position: relative;
-  top: 500px;
-  left: 50%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  justify-content: center;
 }
 .banner .indicator .item {
   width: 8px;

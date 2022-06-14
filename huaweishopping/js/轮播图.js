@@ -2,7 +2,7 @@
 let bannerServerURL = "https://res.vmallres.com/";
 
 
-// 1.动态创建li
+// 1.动态创建li添加图片内容
 let imagesEl = document.querySelector(".images");
 let activeItemEl = imagesEl.querySelector("active");
 
