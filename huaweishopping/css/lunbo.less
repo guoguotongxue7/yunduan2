@@ -1,0 +1,77 @@
+.banner .images {
+    position: relative;
+
+    .item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        // 过渡动画
+        transition: opacity 1s ease;
+        overflow: hidden;
+
+        &.active {
+            opacity: 1;
+
+        }
+
+        img {
+            // 居中
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1920px;
+            height: 550px;
+        }
+    }
+}
+
+.banner .control {
+    position: relative;
+    // // width: 500px;
+    // height: 550px;
+    // margin: 0 auto;
+
+    .item {
+        position: absolute;
+        top: 275px;
+        width: 50px;
+        height: 50px;
+        color: #CCC;
+        font-size: 30px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+
+    }
+}
+
+.banner .indicator {
+    display: flex;
+    position: relative;
+    top: 500px;
+    left: 50%;
+
+    .item {
+        width: 8px;
+        height: 8px;
+        margin: 0 5px;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+
+        &.active {
+            width: 12px;
+        }
+    }
+}
