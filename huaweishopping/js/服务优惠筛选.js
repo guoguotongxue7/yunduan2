@@ -44,7 +44,7 @@ for (let i = 1; i < discountEl.children.length; i++) {
 
 
 // 封装过滤函数：过滤resultList数据
-let showResultList = resultList; //默认全部数据，有过滤条件时再修改
+let showResultList = [].concat(resultList); //浅拷贝全部数据，有过滤条件时再修改
 
 function filterResultListFunction() {
     // 动态创建的部分，不以resultList来循环遍历，而以过滤后的showResultList来遍历
