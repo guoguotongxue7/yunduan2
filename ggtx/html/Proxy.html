@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+
+        const obj = {
+            _name: "gg",
+            set name(newValue) {
+                console.log("this:", this);
+                /* this-> obj，那么通过Proxy监听时，只能监听到set方法改变name属性，
+                但是name属性的set方法又会修改_name属性，修改_name属性这一步监听不到；
+                因为_name是通过this._name修改的，也就是obj._name属性修改了，Proxy也就监听不到这一步骤*/
+                this._name = newValue;
+            },
+            get name() {
+                return this._name;
+            }
+        }
+
+        // 以前的方法
+        // console.log(obj.name);
+        // obj.name = "ggtx";
+        // console.log(obj.name);
+
+
+
+        const objProxy = new Proxy(obj, {
+            set: function (target, key, newValue, receiver) {
+                // target[key] = newValue; 不再对原对象进行操作
+
+                // 代理对象
+                // 1. 好处一：不再直接操作原对象
+                // 2. 好处二：Reflect.set()返回了一个布尔值，可以直接判断本次操作是否成功
+                /* 3. 好处三：
+                      > receiver就是外层的objProxy对象
+                */
+                // console.log(receiver === objProxy);
+
+                console.log(`Proxy中设置方法被调用，设置了${key}属性`);
+
+                // set方法加上receiver参数，就可以监听到name属性的set方法中，this._name被修改的步骤
+                const isSuccess = Reflect.set(target, key, newValue, receiver);//本质上是调用obj里面的set方法设置属性
+               
+                if (isSuccess) {
+                    console.log(`${key}设置成功`);
+                } else {
+                    throw new Error(`set ${key} failure`);
+                }
+            },
+            get: function (target, key, receiver) {
+                console.log(`Proxy中获取方法被调用，获取了${key}属性`);
+                return Reflect.get(target, key, receiver);
+            }
+        });
+
+        // 操作代理对象
+        objProxy.name =  "ggtx";
+        console.log(objProxy.name);
+    </script>
+</body>
+
+</html>

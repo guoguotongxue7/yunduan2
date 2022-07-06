@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function foo(name, age) {
+            console.log(this, name, age);
+        }
+
+        // 1. 给函数对象的原型添加apply方法
+        Function.prototype.ggapply = function(thisArg, otherArgs) {
+            // thisArg -> 传入的第一个参数，即调用的函数对象要绑定的this，也就是foo中的this
+            // this -> 当前的调用者（当前调用的函数对象），也就是foo
+
+
+            // 1.1 获取thisArg，并且确保thisArg是一个对象类型，否则就无法将ggapply方法添加到原型上
+            // 如果thisArg是空对象，就让thisArg->window ，否则就包装为对应的对象类型。
+            thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg);
+
+
+            // 1.2 执行函数，让函数绑定到传入的thisArg上
+            // this();  相当于直接执行函数foo，那么foo中的this-> window，默认绑定
+            // 借助隐式绑定规则，将foo中的this绑定到thisArg上
+            // thisArg.fn = this;  this-> thisArg, 但是这样thisArg会有一个fn属性，也就是foo的this有fn属性
+            Object.defineProperty(thisArg, "fn", {
+                enumerable: false,
+                configurable: true,
+                value: this
+            });
+            thisArg.fn(...otherArgs);
+
+            delete thisArg.fn; // 移除fn属性
+        }
+
+
+        foo.ggapply({
+            name: "gg"
+        }, ["gg", 18]);
+        foo.ggapply(123, ['gsj', 3]);
+        foo.ggapply(null, ["gggg", 5]);
+
+        // 2. 给函数对象的原型添加call方法
+        Function.prototype.ggcall = function(thisArg, ...otherArgs) {
+            thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg);
+
+
+            // 1.2 执行函数，让函数绑定到传入的thisArg上
+            // this();  相当于直接执行函数foo，那么foo中的this-> window，默认绑定
+            // 借助隐式绑定规则，将foo中的this绑定到thisArg上
+            // thisArg.fn = this;  this-> thisArg, 但是这样thisArg会有一个fn属性，也就是foo的this有fn属性
+            Object.defineProperty(thisArg, "fn", {
+                enumerable: false,
+                configurable: true,
+                value: this
+            });
+            thisArg.fn(...otherArgs);
+
+            delete thisArg.fn; // 移除fn属性
+        }
+
+        // foo.ggcall({
+        //     name: "gg"
+        // }, "gg", 18);
+        // foo.ggcall(123, 'gsj', 3);
+        // foo.ggcall(null, "gggg", 5);
+    </script>
+
+</body>
+
+</html>

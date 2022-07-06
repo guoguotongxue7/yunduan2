@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function foo(name, age) {
+            console.log(this, name, age)
+        }
+
+        Function.prototype.ggbind = function(thisArg, ...otherArgs) {
+            // this-> foo函数对象
+
+            thisArg = (thisArg === null || thisArg === undefined) ? Window : Object(thisArg);
+            Object.defineProperty(thisArg, "fn", {
+                enumerable: false,
+                configurable: true,
+                value: this
+            });
+
+
+            // 返回一个箭头函数，这样this就会在ggbind函数中查找。把剩下的参数也要传到返回的函数中
+            return (...newOtherArgs) => {
+                // this();
+
+                var allArgs = otherArgs.concat(newOtherArgs);
+                // 或者 var allArgs = [...otherArgs, ...newOtherArgs]];
+                thisArg.fn(...allArgs);
+
+                // 这里不能移除fn属性，因为newFoo拿到的函数可能后续会继续执行其他的函数，删除了就不能使用了
+            }
+        }
+
+        var newFoo = foo.ggbind("abc", "gg");
+        newFoo(18);
+        newFoo(20);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function foo(name, age) {
+            console.log(this, name, age);
+        }
+
+        // 1. 封装到独立函数
+        function executionFn(thisArg, otherArgs, fn) {
+            // this -> fn
+
+            thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg);
+
+            Object.defineProperty(thisArg, "fn", {
+                enumerable: false,
+                configurable: true,
+                // 防止this出错，把fn传进来，this的值确定为fn
+                value: fn
+            });
+            thisArg.fn(...otherArgs);
+
+            delete thisArg.fn;
+
+        }
+
+        // 2. 封装到函数对象的原型上
+        Function.prototype.executionFn = function(thisArg, otherArgs) {
+            // this -> fn
+
+            thisArg = (thisArg === null || thisArg === undefined) ? window : Object(thisArg);
+
+            Object.defineProperty(thisArg, "fn", {
+                enumerable: false,
+                configurable: true,
+                // 这里的this，可以在apply、call里直接传过来
+                value: this
+            });
+            thisArg.fn(...otherArgs);
+
+            delete thisArg.fn;
+
+        }
+
+
+        // 给函数对象的原型添加apply方法
+        Function.prototype.ggapply = function(thisArg, otherArgs) {
+            // 第一种封装方法的调用：
+            executionFn(thisArg, otherArgs, this);
+
+            // 第二种封装方法的调用：
+            // this.executionFn(thisArg, otherArgs)
+        }
+
+
+        // foo.ggapply({
+        //     name: "gg"
+        // }, ["gg", 18]);
+        // foo.ggapply(123, ['gsj', 3]);
+        // foo.ggapply(null, ["gggg", 5]);
+
+        // 给函数对象的原型添加call方法
+        Function.prototype.ggcall = function(thisArg, ...otherArgs) {
+            // 第一种封装方法的调用：
+            executionFn(thisArg, otherArgs, this);
+
+            // 第二种封装方法的调用：
+            // this.executionFn(thisArg, otherArgs)
+        }
+
+        foo.ggcall({
+            name: "gg"
+        }, "gg", 18);
+        // foo.ggcall(123, 'gsj', 3);
+        // foo.ggcall(null, "gggg", 5);
+    </script>
+
+</body>
+
+</html>
