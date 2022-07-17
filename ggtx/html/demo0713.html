@@ -5,26 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>demo</title>
 
 </head>
 
 <body>
 
-    <a href="https://www.jd.com">京东商城</a>
-    <a href="https://www.taobao.com">淘宝商城</a>
-    <a href="https://www.biyao.com">必要商城</a>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-    <script src="../js/jquery.showlinklocation.js"></script>
-
+    <!-- 
+    window._ = Lodash函数
+   -->
+    <script src="../lodash/lodash-4.17.21.js"></script>
     <script>
-        $(function () {
-            $("a").showlinklocation()
-            // .css("color", "red");
-        })
+        var user = {
+            name: 'liujun',
+            age: '17',
+            height: '1.66',
+            friends: [
+                'Evan',
+                'John',
+                'Mark',
+                'Jack',
+                'David'
+            ]
+        }
+
+
+        console.log( _.pick(user, ['name', 'friends']) )
+        console.log( _.omit(user, ['name', 'friends']) )
+
+        console.log( _.clone(user) )
+        console.log(_.cloneDeep(user))  // 深拷贝
     </script>
 </body>
 
