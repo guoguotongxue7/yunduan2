@@ -11,7 +11,7 @@ $(function () {
     let cacheSearchListData = [];// 热门搜索数据缓存
     let homePageInfoData = {};// 首页所有的数据缓存
     let currentSearchPlaceHolder = "请输入区域、商圈或小区名开始";
-    let currentSearchBarSelector =  "site";
+    let currentSearchBarSelector = "site";
 
     // 页面初始化
     initPage();
@@ -62,7 +62,7 @@ $(function () {
     })
 
     // 搜索框输入事件
-    $searchHouseInput.on("input", function () {
+    $searchHouseInput.on("input", debounce(function () {
         let value = $(this).val();// 输入的信息
         let curLocation = homePageInfoData.curLocation;// 首页的城市信息
 
@@ -86,7 +86,7 @@ $(function () {
                 //  展示搜索结果
                 renderSearchList(searchListData);
             })
-    })
+    }))
 
     /* --------------------------导航栏切换--------------------------- */
     $searchMenuUl.on("click", "li", function () {
