@@ -1,0 +1,59 @@
+.second-house {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.second-house .house {
+  display: flex;
+  justify-content: space-between;
+}
+.second-house .house .item {
+  width: 265px;
+  height: 301px;
+  cursor: pointer;
+}
+.second-house .house .item .bg {
+  position: relative;
+  width: 265px;
+  height: 205px;
+  border-radius: 4px;
+  background: url(../img/bg-item.jpeg) no-repeat;
+}
+.second-house .house .item .bg .tag-img {
+  width: 86px;
+  height: 30px;
+  border-radius: 0;
+}
+.second-house .house .item .bg .vrlogo {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}
+.second-house .house .item .bottom .name {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #222;
+}
+.second-house .house .item .bottom .info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #616669;
+  line-height: 16px;
+  overflow: hidden;
+}
+.second-house .house .item .bottom .price {
+  color: #fa5741;
+}
+.second-house .house .item .bottom .price-ref {
+  font-size: 14px;
+  font-weight: 400;
+}
+.second-house .house .item .bottom .price-val {
+  font-size: 16px;
+  font-weight: 700;
+}

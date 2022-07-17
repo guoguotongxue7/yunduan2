@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="nav-btn">nav button</button>
+
+
+    <script>
+        // 类EventBus -> 事件总线对象
+        class GGEventBus {
+            constructor() {
+                // 一个eventName可能对应多个eventFn, eventMap用于保存eventName和eventFns之间的映射关系
+                // eventMap = { eventName: eventFns} , eventFns =[eventFn1, eventFn2, ...]
+                this.eventMap = {};
+            }
+
+
+            on(eventName, eventFn) {
+                // 把需要监听的eventFn全部加到eventFns
+                let eventFns = this.eventMap[eventName];
+                // 如果eventFns为空,就创建一个数组来存放eventFn
+                if (!eventFns) {
+                    eventFns = [];
+                    this.eventMap[eventName] = eventFns;
+                }
+
+                eventFns.push(eventFn);
+            }
+
+            emit(eventName, ...args) {
+                let eventFns = this.eventMap[eventName];
+                // eventFns如果为空,直接返回
+                if (!eventFns) return
+                // eventFns有值,则执行eventFns里每一个eventFn函数
+                eventFns.forEach(fn => {
+                    fn(...args);
+                });
+            }
+
+
+            off(eventName, eventFn) {
+                let eventFns = this.eventMap[eventName];
+                // eventFns如果为空,直接返回
+                if (!eventFns) return
+
+                // 遍历eventFns,如果找到要删除的eventFn,则删除
+                for (let i = 0; i < eventFns.length; i++) {
+                    if (eventFns[i] === eventFn) {
+                        eventFns.splice(i, 1);
+                        break
+                    }
+                }
+
+                //  如果eventFns已经全部清空
+                if (eventFns.length === 0) {
+                    delete this.eventMap(eventName);
+                }
+            }
+
+        }
+
+
+        // 使用过程
+        const eventBus = new GGEventBus();
+
+        // aside.vue组件中监听事件
+        eventBus.on("navClick", function (name, age, height) {
+            console.log(("navClick listener 01"));
+        });
+
+
+        const click = () => {
+            console.log(("navClick listener 02"));
+        };
+        eventBus.on("navClick", click);
+        setTimeout(() => {
+            eventBus.off("navClick", click)
+        }, 5000);
+
+        eventBus.on("asideClick", () => {
+            console.log(("asideClick listener 01"));
+        });
+
+
+        // nav.vue
+        const navBtnEl = document.querySelector(".nav-btn");
+        navBtnEl.onclick = function () {
+            console.log("自己监听到");
+            eventBus.emit("navClick", "gg", 18, 170);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 封装请求的方法： url --> promise(result)
+        function requestData(url) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(url);
+                }, 3000);
+            })
+        }
+
+        // 1. 发送一次网络请求
+        /*
+        requestData("http://www.gg.com").then(res => {
+             console.log("res:", res);
+         }).catch(err => {
+             console.log("err:", err);
+         }); */
+
+        /* 需求： 
+               1.发送一次网络请求，等待这次网络请求的结果
+               2.发送第二次网络请求，第二次的请求url依赖于第一次的结果，等待这次网络请求的结果
+               3.发送第三次网络请求，第三次的请求url依赖于第二次的结果，等待这次网络请求的结果
+        */
+        // 方式一：层层嵌套（回调地狱
+        /* function getData() {
+            // 第一次请求
+            requestData("gg").then(res1 => {
+                console.log("第一次请求的结果：", res1);
+
+                // 第二次请求：第一次请求的结果与第二次的数据拼接到一起，作为第二次请求的参数
+                requestData(res1 + "yb").then(res2 => {
+                    console.log("第二次请求的结果：", res2);
+
+                    // 第三次请求：上一次的结果和这次的数据拼接到一起，作为第三次请求的参数
+                    requestData(res2 + "why").then(res3 => {
+                        console.log("第三次请求的结果：", res3);
+                    }).catch(err3 => {
+                        console.log("第三次请求失败：", err3);
+                    });
+                }).catch(err2 => {
+                    console.log("第二次请求失败：", err2);
+                });
+            }).catch(err1 => {
+                console.log("第一次请求失败：", err1);
+            });
+        } */
+
+        // getData();
+
+        // 方式二：使用Promise进行重构：将下一次的请求作为返回值，链式调用then方法来输出下一次请求结果
+        /* function getData() {
+            requestData("gg").then(res1 => {
+                console.log("第一次：", res1);
+                return requestData(res1 + "yb");
+            }).then(res2 => {
+                console.log("第二次：", res2);
+                return requestData(res2 + "why");
+            }).then(res3 => {
+                console.log("第三次：", res3);
+            });
+        }
+
+        getData(); */
+
+
+        //  方式三： 最终代码
+        /* function* getData() {
+            const res1 = yield requestData("gg");
+            console.log("res1:", res1);
+            
+            const res2 = yield requestData(res1 + "yb");
+            console.log("res2:", res2);
+
+            const res3 = yield requestData(res2 + "why");
+            console.log("res3:", res3);
+        }
+        debugger
+        const generator = getData();// getData函数返回的是生成器
+
+        //  generator.next()执行函数，返回的是{done: false/true, value: value}这样的对象
+        //  generator.next().value拿到的是yield关键字返回的requestData执行结果，也就是一个Promise对象。通过这个promise调用then方法
+        generator.next().value.then(res1 => { 
+            generator.next(res1).value.then(res2 => {
+                generator.next(res2).value.then(res3 => {
+                    generator.next(res3)
+                })
+            })
+        }) */
+
+
+        // 方案四：
+        async function getData() {
+            const res1 = await requestData("gg");
+            console.log("res1:", res1);
+            
+            const res2 = await requestData(res1 + "yb");
+            console.log("res2:", res2);
+
+            const res3 = await requestData(res2 + "why");
+            console.log("res3:", res3);
+        }
+
+        const generator = getData();
+
+
+    </script>
+</body>
+
+</html>

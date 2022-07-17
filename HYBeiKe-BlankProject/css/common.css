@@ -1,0 +1,39 @@
+body {
+  font-size: 14px;
+  background-color: #f5f5f5;
+  color: #101d37;
+}
+.wrapper {
+  width: 1150px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.icon {
+  display: inline-block;
+  background-image: url(../img/sprite.png);
+}
+.house-title {
+  margin-bottom: 26px;
+}
+.house-title .name {
+  font-size: 36px;
+  line-height: 50px;
+  color: #101d37;
+  font-weight: 600;
+}
+.house-title .sub-name {
+  color: #93969c;
+  width: 1150px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+}
+.house-title .sub-name a {
+  float: right;
+  color: #3072f6;
+  font-weight: 500;
+}
+.house-title .sub-name a:hover {
+  text-decoration: underline;
+}

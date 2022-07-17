@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1.fetch发送get请求(未优化) 
+        /* fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+
+            // 获取对应的response
+            const response = res;
+           
+            // 通过response.json()获取具体的结果, 这是一个Promise对象
+            response.json().then(res => {
+                console.log("res:", res);
+            });
+        }).catch(err => {
+            console.log("err:", err);
+        }); */
+
+        // 2.fetch发送get请求(优化方式一) 
+        /* fetch("http://123.207.32.32:8000/home/multidata").then(res => {
+
+            // 获取对应的response
+            const response = res;
+
+            // 返回具体的结果,作为下一个then()的参数
+            return response.json();
+        }).then(res => {
+            console.log("res:", res);
+        }).catch(err => {
+            console.log("err:", err);
+        }); */
+
+        // 3.fetch发送get请求(优化方式二) 
+        /*  async function getData() {
+             const response = await fetch("http://123.207.32.32:8000/home/multidata")
+             const res = await response.json();
+ 
+             console.log("res:", res);
+         }
+ 
+         getData(); */
+
+        // 2.1 post请求,有参数
+        async function getData() {
+            // json格式
+            /* const response = await fetch("http://123.207.32.32:1888/02_param/postjson", {
+                method: "post",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({   // 参数写在了函数里面,不推荐
+                    name: "gg",
+                    age: 18
+                })
+            }) 
+            
+            const res = await response.json();
+            console.log("res:", res);    
+            */
+
+            // formData格式
+            const formData = new FormData();
+            formData.append("name", "gg");
+            formData.append("age", 18);
+            const response = await fetch("http://123.207.32.32:1888/02_param/postform", {
+                method: "post",
+                body: formData
+            })
+
+            // 获取状态
+            console.log(response.status, response.statusText, response.ok);
+
+            const res = await response.json();
+
+            console.log("res:", res);
+        }
+
+        getData();
+    </script>
+</body>
+
+</html>

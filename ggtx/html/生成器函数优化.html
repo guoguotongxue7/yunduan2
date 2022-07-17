@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function requestData(url) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(url);
+                }, 3000);
+            })
+        }
+
+        function* getData() {
+            const res1 = yield requestData("gg");
+            console.log("res1:", res1);
+
+            const res2 = yield requestData(res1 + "yb");
+            console.log("res2:", res2);
+
+            const res3 = yield requestData(res2 + "why");
+            console.log("res3:", res3);
+        }
+
+
+
+       /*  // 手动执行生成器函数
+        const generator = getData();// getData函数返回的是生成器
+
+        //  generator.next()执行函数，返回的是{done: false/true, value: value}这样的对象
+        //  generator.next().value拿到的是yield关键字返回的requestData执行结果，也就是一个Promise对象。通过这个promise调用then方法
+
+        generator.next().value.then(res1 => {
+            generator.next(res1).value.then(res2 => {
+                generator.next(res2).value.then(res3 => {
+                    generator.next(res3)
+                })
+            })
+        })
+ */
+        // 自动执行生成器函数（有难度）
+        function executeFn(generatorFn) {
+            // 1. 获取生成器函数对应的生成器
+            const generator = generatorFn();
+
+            // 2. 定义一个递归函数
+            function executeCode(res) {
+                const result = generator.next(res);
+                if (result.done) return;
+                // 递归调用
+                result.value.then(res => {
+                    executeCode(res);
+                })
+            }
+
+            // 3. 执行递归函数
+            executeCode();
+        }
+
+        debugger
+        executeFn(getData);
+    </script>
+</body>
+
+</html>

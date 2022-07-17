@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //准备工作 原始数据,和所有的排序规则、过滤规则
+        let originData = [{
+            name: "guoguo",
+            age: 18,
+            money: 13000,
+            isBeautiful: true,
+            height: 170
+        }, {
+            name: "yubo",
+            age: 25,
+            money: -13000,
+            isBeautiful: false,
+            height: 165
+        }];
+
+        let sortRuleOptions = ["age", "money"]; //排他性
+
+        let filterRuleOptions = ["isBeautiful", "height"]; //可以多个
+
+        let isFilter = false; //是否过滤
+
+        //计算保留值
+        let realFilterRules = []; //选中的过滤项
+
+        let realSortRule = null; //选中的排序项 
+
+        let filterResultData = []; //过滤后的结果
+
+        let isBeatutifulButton = document.createElement("button"); //过滤按钮
+
+        let sortAgeButton = document.createElement("button"); //排序按钮
+        let sortMoneyButton = document.createElement("button"); //排序按钮
+
+        //...很多按钮
+        //点击一个按钮之后，
+        /*
+        1. 更新上面的过滤项和排序项  很好做
+            1.1 如果更新了过滤项， isFilter = true;
+            1.2 如果更新的是排序项，isFilter = false;
+        2. if(isFilter) 根据过滤项先从原始数据过滤 很好做， 放到sortResultData中 
+            else 这里就不做了
+        3. 对于过滤后的数据，根据排序项排序
+            3.1 如果为综合，这一步不做
+            3.2 如果不是综合，按照排序条件进行。sort一下 很好做
+        4. 展示
+        */
+
+        isBeatutifulButton.onclick = function() {
+            //点击一个过滤按钮之后，
+            /*
+            1. 更新上面的过滤项
+            2. 根据过滤项先从原始数据过滤 放到sortResultData中 
+            3. 对于过滤后的数据，根据排序项排序
+                3.1 如果为综合，这一步不做
+                3.2 如果不是综合，按照排序条件进行。sort一下 很好做
+            4. 展示
+            */
+            realFilterRules.push("isBeautiful");
+            filterData();
+            sortData();
+            //展示
+
+        }
+        sortAgeButton.onclick = function() {
+            //点击一个排序按钮之后，
+            /*
+            1. 更新上面的排序项  
+            2. 对于过滤后的数据sortResultData，根据排序项排序
+            3. 展示
+            */
+            realSortRule = "age";
+            sortData();
+            //展示
+        }
+
+        function sortData() {
+            //if(default) return;
+            //else
+            filterResultData.sort(function(item1, item2) {
+                return item1[realSortRule] - item2[realSortRule];
+            });
+        }
+
+
+        function filterData() {
+            filterResultData = originData;
+            for (let i = 0; i < realFilterRules.length; i++) {
+                filterResultData = filterResultData.filter(function(item) {
+                    return item[realFilterRules[i]] === true;
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

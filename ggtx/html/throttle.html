@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="cancel">取消</button>
+
+
+    <script>
+
+        // 封装节流函数
+        function ggThrottle(callback, interval, { leading = true, trailing = true } = {}) {
+            //  { leading = true, trailing = true } = {}将两个参数放到一个对象，然后解构为两个参数，且两个参数都有一个默认值
+
+
+            let startTime = 0;
+
+            // 在一个interval内，给最后一次输入设置一个定时器，等到计时结束还没有输入了就执行一次
+            let timer = null;
+
+            const _throttle = function (...args) {
+                return new Promise((resolve, reject) => {
+                    try {
+                        const nowTime = new Date().getTime();
+
+
+                        // 2.1 第变量leading控制是否立即执行，true立即执行，false第一次输入不执行函数
+                        if (!leading && startTime === 0) {
+                            startTime = nowTime;
+                        }
+
+                        // 计算等待时间，执行函数
+                        const waitTime = interval - (nowTime - startTime);
+                        if (waitTime <= 0) { // 第一次执行，waitTime是负值；输入频率过快（小于delayTime）waitTime就是正值，不执行函数
+                            if (timer) clearTimeout(timer);// 在一个interval计时器周期内，还在继续输入就取消定时器，等到不输入且计时结束，执行一次函数，保证最后一次执行
+
+
+                            // 1. 优化this和参数
+                            const res = callback.apply(this, args);
+                            resolve(res);
+                            startTime = nowTime;
+                            timer = null;
+                            return
+                        }
+
+                        // 2.2 最后一次输入是否要执行：变量trailing为true且在一个waitTime周期内最后一次输入，最后一次输入也要执行结果
+
+                        if (trailing && !timer) {
+
+                            timer = setTimeout(() => {
+
+                                const res = callback.apply(this, args);
+                                resolve(res);
+                                startTime = new Date().getTime();
+                                /* startTime调整为最新的开始时间，这样下一次执行就能重新计算等待时间，否则在短时间内可能会执行两次。
+                                   比如interval =10s, 在19.8s执行后不再输入，那么20s时会执行这个周期内最后一次输入；
+                                   接下来在20.2s时又输入一次，也就是新的周期内第一次执行，那么19.8s和20.2s两次结果非常接近但是都执行了。
+                                */
+                                timer = null;
+
+                            }, waitTime);
+                        }
+                    } catch (error) {
+                        reject(error);
+                    }
+                })
+
+            }
+
+            // 3. 添加取消功能
+            _throttle.cancel = function () {
+                if (timer) clearTimeout(timer);
+                startTime = 0;
+                timer = null;
+                return
+            }
+
+            return _throttle;
+        }
+
+    </script>
+
+    <script>
+        // 获取元素
+        const inputEl = document.querySelector("input");
+        const cancelEl = document.querySelector(".cancel");
+
+        // 自己实现节流
+        let counter = 1;
+        const throttleFn = ggThrottle(function (event) {
+            console.log(`发送网络请求${counter++}: `, this.value, event);
+            return "input value"
+        }, 3000, { leading: false, trailing: true });
+        inputEl.addEventListener("input", throttleFn);
+
+
+        cancelEl.addEventListener("click", function () {
+            throttleFn.cancel();
+        })
+
+        throttleFn("aaaa").then(res => {
+            console.log("res:", res);
+        }).catch(err => {
+            console.log("err:", err);
+        })
+
+    </script>
+</body>
+
+</html>
