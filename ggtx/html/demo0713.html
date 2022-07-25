@@ -12,29 +12,27 @@
 <body>
 
     <!-- 
-    window._ = Lodash函数
+    window.dayjs = 工厂函数
    -->
-    <script src="../lodash/lodash-4.17.21.js"></script>
+    <script src="../dayjs/dayjs.js"></script>
     <script>
-        var user = {
-            name: 'liujun',
-            age: '17',
-            height: '1.66',
-            friends: [
-                'Evan',
-                'John',
-                'Mark',
-                'Jack',
-                'David'
-            ]
-        }
+   // 1.解析一个字符串(ISO 8601)类型的时间
+    // YYYY-MM-DD HH:mm:ss
+    // YYYY-MM-DD
+    // YYYY/MM/DD
+    // var day = dayjs('2021-2-2 12:00:10') // dayjs 对象
 
+    // 2.解析时间戳(毫秒)
+    // var day = dayjs(1656206934331) // dayjs 对象
 
-        console.log( _.pick(user, ['name', 'friends']) )
-        console.log( _.omit(user, ['name', 'friends']) )
+    // 3.解析时间戳(秒)
+    // var day = dayjs.unix( 1656206934 ) // dayjs 对象
 
-        console.log( _.clone(user) )
-        console.log(_.cloneDeep(user))  // 深拷贝
+    // 4.解析Date对象
+    var day = dayjs(new Date('2022-10-1')) // dayjs 对象
+    
+    // 时间的格式化
+    console.log( day.format("YYYY/MM/DD HH/mm/ss") )        
     </script>
 </body>
 
